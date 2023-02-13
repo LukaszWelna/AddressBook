@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>20</y>
+      <w>250</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>AddressBook
+--
+- userMenager : UserMenager
+- addresseeMenager : AddresseeMenager
+--
++ AddressBook()
++ ~AddressBook()
++ userSignUp() : Void
++ userLogin() : Void
++ changeLoggedUserPassword() : Void
++ userLogout() : Void
++ showAllUsers() : Void
++ getLoggedUserId() : Integer
++ addAddressee() : Void
++ showLoggedUserAddresses() : Void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>20</y>
+      <w>250</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>User
+--
+- id : Integer
+- login : String
+- password : String
++ User()
++ ~User()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>430</y>
+      <w>250</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>AuxiliaryMethods
+--
++ AuxiliaryMethods()
++ ~AuxiliaryMethods()
++ readLine : String
++ convertIntToString : String
++ convertStringToInt : Integer
++ retrieveIntFromString : String
++ checkFileEmpty : Bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>20</y>
+      <w>270</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>UserMenager
+--
+- idLoggedUser : Integer
+- users : vector &lt;User&gt;
+- fileWithUsers : FileWIthUsers
+--
+- giveNewUserData : User
+- retrieveNewUserData : Integer
+- checkLoginExists : Bool
+- saveAllUsersInFile() : Void
++ UserMenager()
++ ~UserMenager()
++ userSignUp() : Void
++ userLogin() : Integer
++ loadUsersFromFile() : Void
++ changeLoggedUserPassword() : Void
++ userLogout() : Void
++ showAllUsers : Void
++ getLoggedUserId() : Integer
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>20</y>
+      <w>280</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>FileWithUsers
+--
+- fileNameWithUsers : String
+- singleUserDataSeparatedByLines : String
+--
+- convertUserDataToProperFormatInFile : String
+- getSingleUserData() : User
++ FileWithUsers()
++ ~FileWithUsers()
++ addUserToFile : Void
++ loadUsersFromFile() : vector &lt;User&gt;
++ saveAllUsersInFile() : Void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>430</y>
+      <w>270</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>AddresseeMenager
+--
+- lastAddresseeId : Integer
+- showAddresseeData : Void
+- fileWithAddresses : FileWithAddresses
+--
+- enterAddresseData() : Addressee
+- changeFirstLetterToUpperAndOtherToLower : String
+- showAddresseeData : Void
++ AddresseeMenager()
++ ~AddresseeMenager()
++ addAddressee() : Void
++ loadAddressesLoggedUserFromFile() : Void
++ checkIfAddressesVectorEmpty: Bool
++ showLoggedUserAddresses() : Void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>430</y>
+      <w>280</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>FileWithAddresses
+--
+- fileNameWithAddresses : String
+--
+- retrieveUserIdFromDataSeparatedByLines : Integer
+- retrieveAddresseeIdFromDataSeparatedByLines : Integer
+- getSingleAddresseData : Addressee
+- convertAddresseeDataToProperFormatInFile : String
++ FileWithAddresses()
++ ~FileWithAddresses()
++ loadAddressesLoggedUserFromFile : Integer
++ addAddresseeToFile : Void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>430</y>
+      <w>250</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>Addressee
+--
+- id : Integer
+- userId : Integer
+- firstName : String
+- lastName " String
+- phoneNumber : String
+- email : String
+- address : String
+--
++ Addressee()
++ ~Addressee()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
