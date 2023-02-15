@@ -7,19 +7,42 @@ using namespace std;
 int main()
 {
     AddressBook addressBook("Users.txt", "Addresses.txt");
-    addressBook.showAllUsers();
+
     addressBook.userSignUp();
+    addressBook.userSignUp();
+
     addressBook.userLogin();
     addressBook.showLoggedUserAddresses();
+
+    addressBook.getLastAddresseId();
     addressBook.addAddressee();
-    if (addressBook.getLoggedUserId() != 0)
-    {
-        addressBook.changeLoggedUserPassword();
-    }
+    addressBook.getLastAddresseId();
+    addressBook.addAddressee();
+    addressBook.getLastAddresseId();
+    addressBook.showLoggedUserAddresses();
     addressBook.userLogout();
-    cout << addressBook.getLoggedUserId() << endl;
+    addressBook.getLastAddresseId();
+
+    addressBook.addAddressee();
+
+    addressBook.userLogin();
+    addressBook.showLoggedUserAddresses();
+
+    addressBook.addAddressee();
+    addressBook.addAddressee();
+    addressBook.showLoggedUserAddresses();
+    addressBook.userLogout();
     system("pause");
 
 
     return 0;
+    /*
+    if (addressBook.getLoggedUserId() != 0)
+    {
+        addressBook.changeLoggedUserPassword();
+    }
+
+
+    */
 }
+
