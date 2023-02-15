@@ -20,7 +20,12 @@ void AddresseeMenager::setloggedUserId(int newLoggedUserId)
     loggedUserId = newLoggedUserId;
 }
 
-void AddresseeMenager::addAddressee(int loggedUserId)
+void AddresseeMenager::setAddressesVectorEmpty()
+{
+    addresses.clear();
+}
+
+void AddresseeMenager::addAddressee()
 {
     Addressee addressee;
 

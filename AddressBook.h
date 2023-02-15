@@ -29,7 +29,6 @@ public:
     void addAddressee();
     void showLoggedUserAddresses();
     void getLastAddresseId();
-
 };
 
 #endif

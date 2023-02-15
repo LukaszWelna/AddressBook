@@ -29,7 +29,7 @@ void AddressBook::showAllUsers()
 void AddressBook::userLogin()
 {
     userMenager.userLogin();
-    if ((userMenager.getLoggedUserId() > 0) && (addresseeMenager.checkIfAddressesVectorEmpty()))
+    if (userMenager.getLoggedUserId() > 0)
     {
         addresseeMenager.setloggedUserId(userMenager.getLoggedUserId());
         addresseeMenager.loadAddressesLoggedUserFromFile();
@@ -50,11 +50,20 @@ void AddressBook::userLogout()
 {
     userMenager.userLogout();
     addresseeMenager.setloggedUserId(userMenager.getLoggedUserId());
+    addresseeMenager.setAddressesVectorEmpty();
 }
 
 void AddressBook::addAddressee()
 {
-    addresseeMenager.addAddressee(userMenager.getLoggedUserId());
+    if (userMenager.getLoggedUserId() != 0)
+    {
+        addresseeMenager.addAddressee();
+    }
+    else
+    {
+        cout << "You are not logged in. Login and try again." << endl;
+    }
+
 }
 
 void AddressBook::showLoggedUserAddresses()
