@@ -26,7 +26,7 @@ void AddresseeMenager::addAddressee(int loggedUserId)
     addresses.push_back(addressee);
     fileWithAddresses.addAddresseeToFile(addressee);
 
-    ++lastAddresseeId;
+    //++lastAddresseeId;
 }
 
 Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
@@ -111,4 +111,9 @@ void AddresseeMenager::showAddresseeData(Addressee addressee)
     cout << "Numer telefonu:     " << addressee.getPhoneNumber() << endl;
     cout << "Email:              " << addressee.getEmail() << endl;
     cout << "Adres:              " << addressee.getAddress() << endl;
+}
+
+int AddresseeMenager::getLastAddresseId()
+{
+    return lastAddresseeId;
 }

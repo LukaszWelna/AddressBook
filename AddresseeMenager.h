@@ -27,6 +27,7 @@ public:
     void loadAddressesLoggedUserFromFile(int);
     bool checkIfAddressesVectorEmpty();
     void showLoggedUserAddresses();
+    int getLastAddresseId();
 };
 
 #endif

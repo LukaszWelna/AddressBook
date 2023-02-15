@@ -61,4 +61,8 @@ void AddressBook::showLoggedUserAddresses()
     addresseeMenager.showLoggedUserAddresses();
 }
 
-
+void AddressBook::getLastAddresseId()
+{
+    cout << "Id ostatniego adresata: " << addresseeMenager.getLastAddresseId() << endl;
+    system("pause");
+}
