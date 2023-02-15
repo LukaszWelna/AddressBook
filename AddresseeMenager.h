@@ -26,8 +26,9 @@ public:
 
     // SETTERS
     void setloggedUserId(int);
+    void setAddressesVectorEmpty();
 
-    void addAddressee(int);
+    void addAddressee();
     void loadAddressesLoggedUserFromFile();
     bool checkIfAddressesVectorEmpty();
     void showLoggedUserAddresses();

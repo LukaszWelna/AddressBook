@@ -12,24 +12,16 @@ int main()
     addressBook.userSignUp();
 
     addressBook.userLogin();
-    cout << addressBook.getLoggedUserId() << endl;
     addressBook.showLoggedUserAddresses();
 
-    addressBook.getLastAddresseId();
     addressBook.addAddressee();
-    addressBook.getLastAddresseId();
     addressBook.addAddressee();
-    addressBook.getLastAddresseId();
     addressBook.showLoggedUserAddresses();
     addressBook.userLogout();
-    cout << addressBook.getLoggedUserId() << endl;
 
-    addressBook.getLastAddresseId();
-
-    //addressBook.addAddressee();
+    addressBook.addAddressee();
 
     addressBook.userLogin();
-    cout << addressBook.getLoggedUserId() << endl;
 
     addressBook.showLoggedUserAddresses();
 
@@ -37,8 +29,6 @@ int main()
     addressBook.addAddressee();
     addressBook.showLoggedUserAddresses();
     addressBook.userLogout();
-    cout << addressBook.getLoggedUserId() << endl;
-
     system("pause");
 
 
