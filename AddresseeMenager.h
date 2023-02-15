@@ -10,6 +10,7 @@ using namespace std;
 class AddresseeMenager
 {
     int lastAddresseeId;
+    int loggedUserId;
     vector <Addressee> addresses;
     FileWithAddresses fileWithAddresses;
 
@@ -23,8 +24,11 @@ public:
     // DESCRUCTOR
     ~AddresseeMenager();
 
+    // SETTERS
+    void setloggedUserId(int);
+
     void addAddressee(int);
-    void loadAddressesLoggedUserFromFile(int);
+    void loadAddressesLoggedUserFromFile();
     bool checkIfAddressesVectorEmpty();
     void showLoggedUserAddresses();
     int getLastAddresseId();

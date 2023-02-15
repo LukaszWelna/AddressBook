@@ -15,6 +15,11 @@ AddresseeMenager::~AddresseeMenager()
 
 }
 
+void AddresseeMenager::setloggedUserId(int newLoggedUserId)
+{
+    loggedUserId = newLoggedUserId;
+}
+
 void AddresseeMenager::addAddressee(int loggedUserId)
 {
     Addressee addressee;
@@ -66,7 +71,7 @@ string AddresseeMenager::changeFirstLetterToUpperAndOtherToLower(string text)
     return text;
 }
 
-void AddresseeMenager::loadAddressesLoggedUserFromFile(int loggedUserId)
+void AddresseeMenager::loadAddressesLoggedUserFromFile()
 {
     lastAddresseeId = fileWithAddresses.loadAddressesLoggedUserFromFile(addresses, loggedUserId);
 }

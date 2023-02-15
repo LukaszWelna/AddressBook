@@ -31,7 +31,8 @@ void AddressBook::userLogin()
     userMenager.userLogin();
     if ((userMenager.getLoggedUserId() > 0) && (addresseeMenager.checkIfAddressesVectorEmpty()))
     {
-        addresseeMenager.loadAddressesLoggedUserFromFile(userMenager.getLoggedUserId());
+        addresseeMenager.setloggedUserId(userMenager.getLoggedUserId());
+        addresseeMenager.loadAddressesLoggedUserFromFile();
     }
 }
 
@@ -48,6 +49,7 @@ void AddressBook::changeLoggedUserPassword()
 void AddressBook::userLogout()
 {
     userMenager.userLogout();
+    addresseeMenager.setloggedUserId(userMenager.getLoggedUserId());
 }
 
 void AddressBook::addAddressee()
