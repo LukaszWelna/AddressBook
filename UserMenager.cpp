@@ -1,9 +1,4 @@
-#include <iostream>
-#include <windows.h>
-#include <cstdlib>
 #include "UserMenager.h"
-
-using namespace std;
 
 UserMenager::UserMenager(string fileNameWithUsers) : fileWithUsers(fileNameWithUsers)
 {

@@ -1,7 +1,4 @@
-#include <iostream>
 #include "FileWithUsers.h"
-
-using namespace std;
 
 FileWithUsers::FileWithUsers(string FILENAMEWITHUSERS) : fileNameWithUsers(FILENAMEWITHUSERS)
 {

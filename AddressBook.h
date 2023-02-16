@@ -1,8 +1,12 @@
 #ifndef ADDRESSBOOK_H
 #define ADDRESSBOOK_H
 
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <windows.h>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
 #include "UserMenager.h"
 #include "AddresseeMenager.h"
 

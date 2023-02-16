@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Addressee.h"
-
-using namespace std;
 
 Addressee::Addressee()
 {

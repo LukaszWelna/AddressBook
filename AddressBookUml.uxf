@@ -127,7 +127,6 @@
     </coordinates>
     <panel_attributes>AddresseeMenager
 --
-- lastAddresseeId : Integer
 - loggedUserId : Integer
 - showAddresseeData : Void
 - fileWithAddresses : FileWithAddresses
@@ -154,6 +153,7 @@
     <panel_attributes>FileWithAddresses
 --
 - fileNameWithAddresses : String
+- lastAddresseeId : Integer
 --
 - retrieveUserIdFromDataSeparatedByLines : Integer
 - retrieveAddresseeIdFromDataSeparatedByLines : Integer

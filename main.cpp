@@ -8,8 +8,8 @@ int main()
 {
     AddressBook addressBook("Users.txt", "Addresses.txt");
 
-    addressBook.userSignUp();
-    addressBook.userSignUp();
+    //addressBook.userSignUp();
+    //addressBook.userSignUp();
 
     addressBook.userLogin();
     addressBook.showLoggedUserAddresses();
@@ -17,6 +17,7 @@ int main()
     addressBook.addAddressee();
     addressBook.addAddressee();
     addressBook.showLoggedUserAddresses();
+    addressBook.changeLoggedUserPassword();
     addressBook.userLogout();
 
     addressBook.addAddressee();
@@ -28,18 +29,9 @@ int main()
     addressBook.addAddressee();
     addressBook.addAddressee();
     addressBook.showLoggedUserAddresses();
+    addressBook.changeLoggedUserPassword();
     addressBook.userLogout();
-    system("pause");
-
 
     return 0;
-    /*
-    if (addressBook.getLoggedUserId() != 0)
-    {
-        addressBook.changeLoggedUserPassword();
-    }
-
-
-    */
 }
 
