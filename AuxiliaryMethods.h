@@ -9,14 +9,10 @@ using namespace std;
 
 class AuxiliaryMethods
 {
+    // ATTRIBUTES
 
     // METHODS
 public:
-    // CONSTRUCTOR
-    AuxiliaryMethods();
-    // DESCRUCTOR
-    ~AuxiliaryMethods();
-
     static string readLine();
     static string convertIntToString(int);
     static int convertStringToInt(string);

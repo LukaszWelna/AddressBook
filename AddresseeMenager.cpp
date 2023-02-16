@@ -1,15 +1,5 @@
 #include "AddresseeMenager.h"
 
-AddresseeMenager::AddresseeMenager(string fileNameWithAddresses) : fileWithAddresses(fileNameWithAddresses)
-{
-
-}
-
-AddresseeMenager::~AddresseeMenager()
-{
-
-}
-
 void AddresseeMenager::setloggedUserId(int newLoggedUserId)
 {
     loggedUserId = newLoggedUserId;
@@ -27,13 +17,18 @@ void AddresseeMenager::addAddressee()
     system("cls");
     cout << " >>> ADDING NEW ADDRESSEE <<<" << endl << endl;
     addressee = enterAddresseData(loggedUserId);
-
+    if (checkAddresseeRepeated(addressee))
+    {
+        fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() - 1);
+        return;
+    }
     addresses.push_back(addressee);
     fileWithAddresses.addAddresseeToFile(addressee);
 }
 
 Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
 {
+    int initialId = 0;
     Addressee addressee;
     addressee.setId(fileWithAddresses.getLastAddresseeId() + 1);
     fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() + 1);
@@ -67,6 +62,26 @@ string AddresseeMenager::changeFirstLetterToUpperAndOtherToLower(string text)
         text[0] = toupper(text[0]);
     }
     return text;
+}
+
+bool AddresseeMenager::checkAddresseeRepeated(Addressee addressee)
+{
+    int i = 0;
+    while(i < (int) addresses.size())
+    {
+        if ((addressee.getFirstName() == addresses[i].getFirstName()) && (addressee.getLastName() == addresses[i].getLastName()) && (addressee.getAddress() == addresses[i].getAddress()) &&
+            (addressee.getUserId() == addresses[i].getUserId()))
+        {
+            cout << "Addressee is present in base." << endl;
+            system("pause");
+            return true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return false;
 }
 
 void AddresseeMenager::loadAddressesLoggedUserFromFile()

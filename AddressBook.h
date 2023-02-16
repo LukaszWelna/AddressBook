@@ -20,8 +20,11 @@ class AddressBook
 
     //METHODS
 public:
-    AddressBook(string = "Users.txt", string = "Addresses.txt");
-    ~AddressBook();
+    // CONSTRUCTOR
+    AddressBook(string fileNameWithUsers, string fileNameWithAddresses) : userMenager(fileNameWithUsers), addresseeMenager(fileNameWithAddresses)
+    {
+        userMenager.loadUsersFromFile();
+    }
 
     void userSignUp();
     void userLogin();

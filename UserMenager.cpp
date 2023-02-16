@@ -1,15 +1,5 @@
 #include "UserMenager.h"
 
-UserMenager::UserMenager(string fileNameWithUsers) : fileWithUsers(fileNameWithUsers)
-{
-
-}
-
-UserMenager::~UserMenager()
-{
-
-}
-
 void UserMenager::userSignUp()
 {
     User user  = giveNewUserData();

@@ -1,15 +1,5 @@
 #include "User.h"
 
-User::User()
-{
-
-}
-
-User::~User()
-{
-
-}
-
 // SETTERS
 void User::setId(int newId)
 {

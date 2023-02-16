@@ -12,8 +12,11 @@ using namespace std;
 
 class FileWithAddresses
 {
+    // ATTRIBUTES
     const string fileNameWithAddresses;
     int lastAddresseeId;
+
+    // METHODS
     int retrieveUserIdFromDataSeparatedByLines(string);
     int retrieveAddresseeIdFromDataSeparatedByLines(string);
     Addressee getSingleAddresseData(string);
@@ -21,9 +24,10 @@ class FileWithAddresses
 
 public:
     //CONSTRUCTOR
-    FileWithAddresses(string);
-    //DESCRUCTOR
-    ~FileWithAddresses();
+    FileWithAddresses(string FILENAMEWITHADDRESSES) : fileNameWithAddresses(FILENAMEWITHADDRESSES)
+    {
+
+    }
 
     // SETTERS
     void setLastAddresseeId(int);

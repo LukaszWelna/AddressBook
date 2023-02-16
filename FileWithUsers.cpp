@@ -1,15 +1,5 @@
 #include "FileWithUsers.h"
 
-FileWithUsers::FileWithUsers(string FILENAMEWITHUSERS) : fileNameWithUsers(FILENAMEWITHUSERS)
-{
-
-}
-
-FileWithUsers::~FileWithUsers()
-{
-
-}
-
 void FileWithUsers::addUserToFile(User user)
 {
     fstream textFile;

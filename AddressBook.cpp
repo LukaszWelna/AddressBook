@@ -1,14 +1,5 @@
 #include "AddressBook.h"
 
-AddressBook::AddressBook(string fileNameWithUsers, string fileNameWithAddresses) : userMenager(fileNameWithUsers), addresseeMenager(fileNameWithAddresses)
-{
-    userMenager.loadUsersFromFile();
-}
-AddressBook::~AddressBook()
-{
-
-}
-
 void AddressBook::userSignUp()
 {
     userMenager.userSignUp();

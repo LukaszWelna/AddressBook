@@ -13,11 +13,6 @@ class User
 
     // METHODS
 public:
-    // CONSTRUCTOR
-    User();
-    // DESCRUCTOR
-    ~User();
-
     // SETTERS
     void setId(int);
     void setLogin(string);

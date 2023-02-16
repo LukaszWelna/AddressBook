@@ -134,6 +134,7 @@
 - enterAddresseData() : Addressee
 - changeFirstLetterToUpperAndOtherToLower : String
 - showAddresseeData : Void
+- checkAddresseeRepeated() : Bool
 + AddresseeMenager()
 + ~AddresseeMenager()
 + addAddressee() : Void

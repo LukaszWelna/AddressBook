@@ -21,9 +21,10 @@ class FileWithUsers
 
 public:
     //CONSTRUCTOR
-    FileWithUsers(string);
-    //DESCRUCTOR
-    ~FileWithUsers();
+    FileWithUsers(string FILENAMEWITHUSERS) : fileNameWithUsers(FILENAMEWITHUSERS)
+    {
+
+    }
 
     void addUserToFile(User);
     vector <User> loadUsersFromFile();

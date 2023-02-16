@@ -1,15 +1,5 @@
 #include "Addressee.h"
 
-Addressee::Addressee()
-{
-
-}
-
-Addressee::~Addressee()
-{
-
-}
-
 // SETTERS
 void Addressee::setUserId(int newUserId)
 {

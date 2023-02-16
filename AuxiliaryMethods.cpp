@@ -1,15 +1,5 @@
 #include "AuxiliaryMethods.h"
 
-AuxiliaryMethods::AuxiliaryMethods()
-{
-
-}
-
-AuxiliaryMethods::~AuxiliaryMethods()
-{
-
-}
-
 string AuxiliaryMethods::readLine()
 {
     string input = "";

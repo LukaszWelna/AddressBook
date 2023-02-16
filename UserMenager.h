@@ -11,10 +11,12 @@ using namespace std;
 
 class UserMenager
 {
+    // ATTRIBUTES
     int idLoggedUser;
     vector <User> users;
     FileWithUsers fileWithUsers;
 
+    // METHODS
     User giveNewUserData();
     int retrieveNewUserData();
     bool checkLoginExists(string);
@@ -22,9 +24,10 @@ class UserMenager
 
 public:
     // CONSTRUCTOR
-    UserMenager(string);
-    // DESCRUCTOR
-    ~UserMenager();
+    UserMenager(string fileNameWithUsers) : fileWithUsers(fileNameWithUsers)
+    {
+
+    }
 
     void userSignUp();
     void userLogin();
