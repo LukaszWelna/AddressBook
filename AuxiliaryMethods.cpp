@@ -1,8 +1,4 @@
-#include <iostream>
-#include <sstream>
 #include "AuxiliaryMethods.h"
-
-using namespace std;
 
 AuxiliaryMethods::AuxiliaryMethods()
 {

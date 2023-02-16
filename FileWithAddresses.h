@@ -13,7 +13,7 @@ using namespace std;
 class FileWithAddresses
 {
     const string fileNameWithAddresses;
-
+    int lastAddresseeId;
     int retrieveUserIdFromDataSeparatedByLines(string);
     int retrieveAddresseeIdFromDataSeparatedByLines(string);
     Addressee getSingleAddresseData(string);
@@ -25,7 +25,13 @@ public:
     //DESCRUCTOR
     ~FileWithAddresses();
 
-    int loadAddressesLoggedUserFromFile(vector <Addressee> &, int);
+    // SETTERS
+    void setLastAddresseeId(int);
+
+    // GETTERS
+    int getLastAddresseeId();
+
+    vector <Addressee> loadAddressesLoggedUserFromFile(int);
     void addAddresseeToFile(Addressee);
 
 };

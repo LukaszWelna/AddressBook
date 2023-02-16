@@ -1,11 +1,4 @@
-#include <iostream>
-#include <windows.h>
-#include <fstream>
-#include <sstream>
-#include <cstdlib>
 #include "AddressBook.h"
-
-using namespace std;
 
 AddressBook::AddressBook(string fileNameWithUsers, string fileNameWithAddresses) : userMenager(fileNameWithUsers), addresseeMenager(fileNameWithAddresses)
 {
@@ -43,7 +36,15 @@ int AddressBook::getLoggedUserId()
 
 void AddressBook::changeLoggedUserPassword()
 {
-    userMenager.changeLoggedUserPassword();
+    if (userMenager.getLoggedUserId() != 0)
+    {
+        userMenager.changeLoggedUserPassword();
+    }
+    else
+    {
+        cout << "You are not logged in. Login and try again." << endl;
+        system("pause");
+    }
 }
 
 void AddressBook::userLogout()
@@ -62,8 +63,8 @@ void AddressBook::addAddressee()
     else
     {
         cout << "You are not logged in. Login and try again." << endl;
+        system("pause");
     }
-
 }
 
 void AddressBook::showLoggedUserAddresses()

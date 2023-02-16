@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include <vector>
+#include <windows.h>
+#include <cstdlib>
 #include "FileWithAddresses.h"
 
 using namespace std;
 
 class AddresseeMenager
 {
-    int lastAddresseeId;
     int loggedUserId;
     vector <Addressee> addresses;
     FileWithAddresses fileWithAddresses;

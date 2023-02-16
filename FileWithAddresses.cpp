@@ -1,7 +1,4 @@
-#include <iostream>
 #include "FileWithAddresses.h"
-
-using namespace std;
 
 FileWithAddresses::FileWithAddresses(string FILENAMEWITHADDRESSES) : fileNameWithAddresses(FILENAMEWITHADDRESSES)
 {
@@ -13,10 +10,21 @@ FileWithAddresses::~FileWithAddresses()
 
 }
 
-int FileWithAddresses::loadAddressesLoggedUserFromFile(vector <Addressee> &addresses, int loggedUserId)
+void FileWithAddresses::setLastAddresseeId(int newLastAddresseeId)
+{
+    lastAddresseeId = newLastAddresseeId;
+}
+
+int FileWithAddresses::getLastAddresseeId()
+{
+    return lastAddresseeId;
+}
+
+vector <Addressee> FileWithAddresses::loadAddressesLoggedUserFromFile(int loggedUserId)
 {
     Addressee addressee;
-    int lastAddresseId = 0;
+    vector <Addressee> addresses;
+    lastAddresseeId = 0;
 
     string singleAddresseeDataSeparatedByLines = "";
     string lastAddresseeDataInFile = "";
@@ -40,11 +48,12 @@ int FileWithAddresses::loadAddressesLoggedUserFromFile(vector <Addressee> &addre
 
     if (lastAddresseeDataInFile != "")
     {
-        lastAddresseId = retrieveAddresseeIdFromDataSeparatedByLines(lastAddresseeDataInFile);
-        return lastAddresseId;
+        lastAddresseeId = retrieveAddresseeIdFromDataSeparatedByLines(lastAddresseeDataInFile);
     }
     else
-        return 0;
+        lastAddresseeId = 0;
+
+    return addresses;
 }
 
 int FileWithAddresses::retrieveUserIdFromDataSeparatedByLines(string singleAddresseeDataSeparatedByLines)

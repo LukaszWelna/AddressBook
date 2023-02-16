@@ -1,9 +1,4 @@
-#include <iostream>
-#include <windows.h>
-#include <cstdlib>
 #include "AddresseeMenager.h"
-
-using namespace std;
 
 AddresseeMenager::AddresseeMenager(string fileNameWithAddresses) : fileWithAddresses(fileNameWithAddresses)
 {
@@ -35,15 +30,13 @@ void AddresseeMenager::addAddressee()
 
     addresses.push_back(addressee);
     fileWithAddresses.addAddresseeToFile(addressee);
-
-    //++lastAddresseeId;
 }
 
 Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
 {
     Addressee addressee;
-
-    addressee.setId(++lastAddresseeId);
+    addressee.setId(fileWithAddresses.getLastAddresseeId() + 1);
+    fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() + 1);
     addressee.setUserId(loggedUserId);
 
     cout << "Enter first name: ";
@@ -78,7 +71,7 @@ string AddresseeMenager::changeFirstLetterToUpperAndOtherToLower(string text)
 
 void AddresseeMenager::loadAddressesLoggedUserFromFile()
 {
-    lastAddresseeId = fileWithAddresses.loadAddressesLoggedUserFromFile(addresses, loggedUserId);
+    addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(loggedUserId);
 }
 
 bool AddresseeMenager::checkIfAddressesVectorEmpty()
@@ -125,5 +118,5 @@ void AddresseeMenager::showAddresseeData(Addressee addressee)
 
 int AddresseeMenager::getLastAddresseId()
 {
-    return lastAddresseeId;
+    return fileWithAddresses.getLastAddresseeId();
 }

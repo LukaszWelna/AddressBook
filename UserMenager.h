@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <windows.h>
+#include <cstdlib>
 #include "FileWithUsers.h"
 
 using namespace std;
