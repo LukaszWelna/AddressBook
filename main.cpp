@@ -18,8 +18,8 @@ int main()
     addressBook.addAddressee();
     addressBook.showLoggedUserAddresses();
     addressBook.changeLoggedUserPassword();
-    addressBook.userLogout();
 
+    addressBook.userLogout();
     addressBook.addAddressee();
 
     addressBook.userLogin();

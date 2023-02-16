@@ -1,20 +1,12 @@
 #include "FileWithAddresses.h"
 
-FileWithAddresses::FileWithAddresses(string FILENAMEWITHADDRESSES) : fileNameWithAddresses(FILENAMEWITHADDRESSES)
-{
-
-}
-
-FileWithAddresses::~FileWithAddresses()
-{
-
-}
-
+// SETTERS
 void FileWithAddresses::setLastAddresseeId(int newLastAddresseeId)
 {
     lastAddresseeId = newLastAddresseeId;
 }
 
+// GETTERS
 int FileWithAddresses::getLastAddresseeId()
 {
     return lastAddresseeId;

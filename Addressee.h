@@ -18,11 +18,6 @@ class Addressee
 
     // METHODS
 public:
-    // CONSTRUCTOR
-    Addressee();
-    // DESCRUCTOR
-    ~Addressee();
-
     // SETTERS
     void setId(int);
     void setUserId(int);
