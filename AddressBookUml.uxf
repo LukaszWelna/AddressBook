@@ -24,6 +24,7 @@
 + getLoggedUserId() : Integer
 + addAddressee() : Void
 + showLoggedUserAddresses() : Void
++ userLogged() : Bool
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -62,6 +63,7 @@
 + convertStringToInt : Integer
 + retrieveIntFromString : String
 + checkFileEmpty : Bool
++ changeFirstLetterToUpperAndOtherToLower : String
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -131,7 +133,6 @@
 - fileWithAddresses : FileWithAddresses
 --
 - enterAddresseData() : Addressee
-- changeFirstLetterToUpperAndOtherToLower : String
 - showAddresseeData : Void
 - checkAddresseeRepeated() : Bool
 + AddresseeMenager()
@@ -185,6 +186,19 @@
 --
 + Addressee()
 + ~Addressee()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1220</x>
+      <y>20</y>
+      <w>280</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>MenuMenager
+--
 </panel_attributes>
     <additional_attributes/>
   </element>

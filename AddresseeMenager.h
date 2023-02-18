@@ -18,7 +18,6 @@ class AddresseeMenager
 
     // METHODS
     Addressee enterAddresseData(int);
-    string changeFirstLetterToUpperAndOtherToLower(string);
     void showAddresseeData(Addressee);
     bool checkAddresseeRepeated(Addressee);
 
@@ -27,12 +26,6 @@ public:
     AddresseeMenager(string fileNameWithAddresses, int loggedUserId) : fileWithAddresses(fileNameWithAddresses), LOGGED_USER_ID(loggedUserId)
     {
         addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(LOGGED_USER_ID);
-    }
-
-    // DESCRUCTOR
-    ~AddresseeMenager()
-    {
-
     }
 
     int getLastAddresseId();

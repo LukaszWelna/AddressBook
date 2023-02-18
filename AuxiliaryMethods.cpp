@@ -1,5 +1,24 @@
 #include "AuxiliaryMethods.h"
 
+char AuxiliaryMethods::readSign()
+{
+    string input = "";
+    char sign  = {0};
+
+    while (true)
+    {
+        getline(cin, input);
+
+        if (input.length() == 1)
+        {
+            sign = input[0];
+            break;
+        }
+        cout << "It is not a sign. Try again." << endl;
+    }
+    return sign;
+}
+
 string AuxiliaryMethods::readLine()
 {
     string input = "";
@@ -42,4 +61,14 @@ bool AuxiliaryMethods::checkFileEmpty(fstream &textFile)
         return true;
     else
         return false;
+}
+
+string AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(string text)
+{
+    if (!text.empty())
+    {
+        transform(text.begin(), text.end(), text.begin(), ::tolower);
+        text[0] = toupper(text[0]);
+    }
+    return text;
 }

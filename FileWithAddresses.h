@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <algorithm>
 #include "Addressee.h"
 #include "AuxiliaryMethods.h"
 

@@ -30,16 +30,15 @@ Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
 {
     Addressee addressee;
     addressee.setId(fileWithAddresses.getLastAddresseeId() + 1);
-    //fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() + 1);
     addressee.setUserId(loggedUserId);
 
     cout << "Enter first name: ";
     addressee.setFirstName(AuxiliaryMethods::readLine());
-    addressee.setFirstName(changeFirstLetterToUpperAndOtherToLower(addressee.getFirstName()));
+    addressee.setFirstName(AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(addressee.getFirstName()));
 
     cout << "Enter last name: ";
     addressee.setLastName(AuxiliaryMethods::readLine());
-    addressee.setLastName(changeFirstLetterToUpperAndOtherToLower(addressee.getLastName()));
+    addressee.setLastName(AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(addressee.getLastName()));
 
     cout << "Enter phone number: ";
     addressee.setPhoneNumber(AuxiliaryMethods::readLine());
@@ -51,16 +50,6 @@ Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
     addressee.setAddress(AuxiliaryMethods::readLine());
 
     return addressee;
-}
-
-string AddresseeMenager::changeFirstLetterToUpperAndOtherToLower(string text)
-{
-    if (!text.empty())
-    {
-        transform(text.begin(), text.end(), text.begin(), ::tolower);
-        text[0] = toupper(text[0]);
-    }
-    return text;
 }
 
 bool AddresseeMenager::checkAddresseeRepeated(Addressee addressee)
