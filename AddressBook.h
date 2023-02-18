@@ -40,10 +40,10 @@ public:
     void userLogout();
     void showAllUsers();
     int getLoggedUserId();
-
     void addAddressee();
     void showLoggedUserAddresses();
     void getLastAddresseId();
+    bool userLogged();
 };
 
 #endif

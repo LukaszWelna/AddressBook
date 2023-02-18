@@ -13,7 +13,7 @@ void AddressBook::showAllUsers()
 void AddressBook::userLogin()
 {
     userMenager.userLogin();
-    if (userMenager.getLoggedUserId() > 0)
+    if (userLogged())
     {
         addresseeMenager = new AddresseeMenager(FILE_NAME_WITH_ADDRESSES, userMenager.getLoggedUserId());
     }
@@ -26,7 +26,7 @@ int AddressBook::getLoggedUserId()
 
 void AddressBook::changeLoggedUserPassword()
 {
-    if (userMenager.getLoggedUserId() != 0)
+    if (userLogged())
     {
         userMenager.changeLoggedUserPassword();
     }
@@ -46,7 +46,7 @@ void AddressBook::userLogout()
 
 void AddressBook::addAddressee()
 {
-    if (userMenager.getLoggedUserId() != 0)
+    if (userLogged())
     {
         addresseeMenager -> addAddressee();
     }
@@ -59,7 +59,7 @@ void AddressBook::addAddressee()
 
 void AddressBook::showLoggedUserAddresses()
 {
-    if (userMenager.getLoggedUserId() > 0)
+    if (userLogged())
     {
         addresseeMenager -> showLoggedUserAddresses();
     }
@@ -73,4 +73,12 @@ void AddressBook::getLastAddresseId()
 {
     cout << "Id ostatniego adresata: " << addresseeMenager -> getLastAddresseId() << endl;
     system("pause");
+}
+
+bool AddressBook::userLogged()
+{
+    if (userMenager.getLoggedUserId() > 0)
+        return true;
+    else
+        return false;
 }
