@@ -19,9 +19,15 @@ class Addressee
     // METHODS
 public:
     // CONSTRUCTOR
-    Addressee()
+    Addressee(int id = 0, int userId = 0, string firstName = "", string lastName = "", string phoneNumber = "", string email = "", string address = "")
     {
-
+        this -> id = id;
+        this -> userId = userId;
+        this -> firstName = firstName;
+        this -> lastName = lastName;
+        this -> phoneNumber = phoneNumber;
+        this -> email = email;
+        this -> address = address;
     }
 
     // SETTERS
