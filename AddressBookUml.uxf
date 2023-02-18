@@ -87,7 +87,6 @@
 + ~UserMenager()
 + userSignUp() : Void
 + userLogin() : Integer
-+ loadUsersFromFile() : Void
 + changeLoggedUserPassword() : Void
 + userLogout() : Void
 + showAllUsers : Void
@@ -105,7 +104,7 @@
     </coordinates>
     <panel_attributes>FileWithUsers
 --
-- fileNameWithUsers : String
+- FILE_NAME_WITH_USERS : String
 - singleUserDataSeparatedByLines : String
 --
 - convertUserDataToProperFormatInFile : String
@@ -127,7 +126,7 @@
     </coordinates>
     <panel_attributes>AddresseeMenager
 --
-- loggedUserId : Integer
+- LOGGED_USER_ID : Integer
 - showAddresseeData : Void
 - fileWithAddresses : FileWithAddresses
 --
@@ -138,7 +137,6 @@
 + AddresseeMenager()
 + ~AddresseeMenager()
 + addAddressee() : Void
-+ loadAddressesLoggedUserFromFile() : Void
 + checkIfAddressesVectorEmpty: Bool
 + showLoggedUserAddresses() : Void</panel_attributes>
     <additional_attributes/>
@@ -153,7 +151,7 @@
     </coordinates>
     <panel_attributes>FileWithAddresses
 --
-- fileNameWithAddresses : String
+- FILE_NAME_WITH_ADDRESSES : String
 - lastAddresseeId : Integer
 --
 - retrieveUserIdFromDataSeparatedByLines : Integer
@@ -163,7 +161,7 @@
 + FileWithAddresses()
 + ~FileWithAddresses()
 + loadAddressesLoggedUserFromFile : Integer
-+ addAddresseeToFile : Void
++ addAddresseeToFile : Bool
 </panel_attributes>
     <additional_attributes/>
   </element>

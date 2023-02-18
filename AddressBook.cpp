@@ -15,8 +15,7 @@ void AddressBook::userLogin()
     userMenager.userLogin();
     if (userMenager.getLoggedUserId() > 0)
     {
-        addresseeMenager.setloggedUserId(userMenager.getLoggedUserId());
-        addresseeMenager.loadAddressesLoggedUserFromFile();
+        addresseeMenager = new AddresseeMenager(FILE_NAME_WITH_ADDRESSES, userMenager.getLoggedUserId());
     }
 }
 
@@ -41,15 +40,15 @@ void AddressBook::changeLoggedUserPassword()
 void AddressBook::userLogout()
 {
     userMenager.userLogout();
-    addresseeMenager.setloggedUserId(userMenager.getLoggedUserId());
-    addresseeMenager.setAddressesVectorEmpty();
+    delete addresseeMenager;
+    addresseeMenager = NULL;
 }
 
 void AddressBook::addAddressee()
 {
     if (userMenager.getLoggedUserId() != 0)
     {
-        addresseeMenager.addAddressee();
+        addresseeMenager -> addAddressee();
     }
     else
     {
@@ -60,12 +59,18 @@ void AddressBook::addAddressee()
 
 void AddressBook::showLoggedUserAddresses()
 {
-    cout << endl;
-    addresseeMenager.showLoggedUserAddresses();
+    if (userMenager.getLoggedUserId() > 0)
+    {
+        addresseeMenager -> showLoggedUserAddresses();
+    }
+    else
+    {
+        cout << "You are not logged in. Login and try again." << endl;
+    }
 }
 
 void AddressBook::getLastAddresseId()
 {
-    cout << "Id ostatniego adresata: " << addresseeMenager.getLastAddresseId() << endl;
+    cout << "Id ostatniego adresata: " << addresseeMenager -> getLastAddresseId() << endl;
     system("pause");
 }

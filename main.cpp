@@ -8,7 +8,7 @@ int main()
 {
     AddressBook addressBook("Users.txt", "Addresses.txt");
 
-    //addressBook.userSignUp();
+    addressBook.userSignUp();
     //addressBook.userSignUp();
 
     addressBook.userLogin();

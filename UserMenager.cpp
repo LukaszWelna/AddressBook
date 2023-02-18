@@ -57,11 +57,6 @@ void UserMenager::showAllUsers()
     }
 }
 
-void UserMenager::loadUsersFromFile()
-{
-    users = fileWithUsers.loadUsersFromFile();
-}
-
 void UserMenager::userLogin()
 {
     User user;

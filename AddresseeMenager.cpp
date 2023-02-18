@@ -1,37 +1,36 @@
 #include "AddresseeMenager.h"
 
-void AddresseeMenager::setloggedUserId(int newLoggedUserId)
-{
-    loggedUserId = newLoggedUserId;
-}
-
-void AddresseeMenager::setAddressesVectorEmpty()
-{
-    addresses.clear();
-}
-
 void AddresseeMenager::addAddressee()
 {
     Addressee addressee;
 
     system("cls");
     cout << " >>> ADDING NEW ADDRESSEE <<<" << endl << endl;
-    addressee = enterAddresseData(loggedUserId);
+    addressee = enterAddresseData(LOGGED_USER_ID);
     if (checkAddresseeRepeated(addressee))
     {
         fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() - 1);
         return;
     }
+
     addresses.push_back(addressee);
-    fileWithAddresses.addAddresseeToFile(addressee);
+
+    if (fileWithAddresses.addAddresseeToFile(addressee))
+    {
+        cout << "New addressee added." << endl;
+    }
+    else
+    {
+        cout << "Error. Adding new addressee failed." << endl;
+    }
+    system("pause");
 }
 
 Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
 {
-    int initialId = 0;
     Addressee addressee;
     addressee.setId(fileWithAddresses.getLastAddresseeId() + 1);
-    fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() + 1);
+    //fileWithAddresses.setLastAddresseeId(fileWithAddresses.getLastAddresseeId() + 1);
     addressee.setUserId(loggedUserId);
 
     cout << "Enter first name: ";
@@ -84,21 +83,9 @@ bool AddresseeMenager::checkAddresseeRepeated(Addressee addressee)
     return false;
 }
 
-void AddresseeMenager::loadAddressesLoggedUserFromFile()
-{
-    addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(loggedUserId);
-}
-
 bool AddresseeMenager::checkIfAddressesVectorEmpty()
 {
-    if (addresses.empty())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return addresses.empty();
 }
 
 void AddresseeMenager::showLoggedUserAddresses()
@@ -108,7 +95,7 @@ void AddresseeMenager::showLoggedUserAddresses()
     {
         cout << "             >>> ADDRESSES <<<" << endl;
         cout << "-----------------------------------------------" << endl;
-        for (vector <Addressee> :: iterator it = addresses.begin(); it != addresses.end(); it++)
+        for (vector <Addressee> :: iterator it = addresses.begin(); it != addresses.end(); ++it)
         {
             showAddresseeData(*it);
         }

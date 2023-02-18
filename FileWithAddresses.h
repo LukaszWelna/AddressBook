@@ -13,7 +13,7 @@ using namespace std;
 class FileWithAddresses
 {
     // ATTRIBUTES
-    const string fileNameWithAddresses;
+    const string FILE_NAME_WITH_ADDRESSES;
     int lastAddresseeId;
 
     // METHODS
@@ -24,9 +24,9 @@ class FileWithAddresses
 
 public:
     //CONSTRUCTOR
-    FileWithAddresses(string FILENAMEWITHADDRESSES) : fileNameWithAddresses(FILENAMEWITHADDRESSES)
+    FileWithAddresses(string fileNameWithAddresses) : FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses)
     {
-
+        lastAddresseeId = 0;
     }
 
     // SETTERS
@@ -36,7 +36,7 @@ public:
     int getLastAddresseeId();
 
     vector <Addressee> loadAddressesLoggedUserFromFile(int);
-    void addAddresseeToFile(Addressee);
+    bool addAddresseeToFile(Addressee);
 
 };
 
