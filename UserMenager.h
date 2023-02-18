@@ -26,12 +26,12 @@ public:
     // CONSTRUCTOR
     UserMenager(string fileNameWithUsers) : fileWithUsers(fileNameWithUsers)
     {
-
+        idLoggedUser = 0;
+        users = fileWithUsers.loadUsersFromFile();
     }
 
     void userSignUp();
     void userLogin();
-    void loadUsersFromFile();
     void changeLoggedUserPassword();
     void userLogout();
     void showAllUsers();

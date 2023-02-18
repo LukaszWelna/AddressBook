@@ -12,7 +12,7 @@ using namespace std;
 class FileWithUsers
 {
     // ATTRIBUTES
-    const string fileNameWithUsers;
+    const string FILE_NAME_WITH_USERS;
     string singleUserDataSeparatedByLines;
 
     // METHODS
@@ -21,7 +21,7 @@ class FileWithUsers
 
 public:
     //CONSTRUCTOR
-    FileWithUsers(string FILENAMEWITHUSERS) : fileNameWithUsers(FILENAMEWITHUSERS)
+    FileWithUsers(string fileNameWithUsers) : FILE_NAME_WITH_USERS(fileNameWithUsers)
     {
 
     }

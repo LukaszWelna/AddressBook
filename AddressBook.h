@@ -16,14 +16,22 @@ class AddressBook
 {
     // ATTRIBUTES
     UserMenager userMenager;
-    AddresseeMenager addresseeMenager;
+    AddresseeMenager *addresseeMenager;
+    const string FILE_NAME_WITH_ADDRESSES;
 
     //METHODS
 public:
     // CONSTRUCTOR
-    AddressBook(string fileNameWithUsers, string fileNameWithAddresses) : userMenager(fileNameWithUsers), addresseeMenager(fileNameWithAddresses)
+    AddressBook(string fileNameWithUsers, string fileNameWithAddresses) : userMenager(fileNameWithUsers), FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses)
     {
-        userMenager.loadUsersFromFile();
+        addresseeMenager = NULL;
+    }
+
+    // DESTRUCTOR
+    ~AddressBook()
+    {
+        delete addresseeMenager;
+        addresseeMenager = NULL;
     }
 
     void userSignUp();

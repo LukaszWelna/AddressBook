@@ -18,6 +18,12 @@ class Addressee
 
     // METHODS
 public:
+    // CONSTRUCTOR
+    Addressee()
+    {
+
+    }
+
     // SETTERS
     void setId(int);
     void setUserId(int);

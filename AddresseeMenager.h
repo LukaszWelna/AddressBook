@@ -12,9 +12,9 @@ using namespace std;
 class AddresseeMenager
 {
     // ATTRIBUTES
-    int loggedUserId;
-    vector <Addressee> addresses;
     FileWithAddresses fileWithAddresses;
+    const int LOGGED_USER_ID;
+    vector <Addressee> addresses;
 
     // METHODS
     Addressee enterAddresseData(int);
@@ -24,18 +24,19 @@ class AddresseeMenager
 
 public:
     // CONSTRUCTOR
-    AddresseeMenager(string fileNameWithAddresses) : fileWithAddresses(fileNameWithAddresses)
+    AddresseeMenager(string fileNameWithAddresses, int loggedUserId) : fileWithAddresses(fileNameWithAddresses), LOGGED_USER_ID(loggedUserId)
+    {
+        addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(LOGGED_USER_ID);
+    }
+
+    // DESCRUCTOR
+    ~AddresseeMenager()
     {
 
     }
 
-    // SETTERS
-    void setloggedUserId(int);
-    void setAddressesVectorEmpty();
-
     int getLastAddresseId();
     void addAddressee();
-    void loadAddressesLoggedUserFromFile();
     bool checkIfAddressesVectorEmpty();
     void showLoggedUserAddresses();
 

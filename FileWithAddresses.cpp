@@ -21,7 +21,7 @@ vector <Addressee> FileWithAddresses::loadAddressesLoggedUserFromFile(int logged
     string singleAddresseeDataSeparatedByLines = "";
     string lastAddresseeDataInFile = "";
     fstream textFile;
-    textFile.open(fileNameWithAddresses, ios::in);
+    textFile.open(FILE_NAME_WITH_ADDRESSES, ios::in);
 
     if (textFile.good() == true)
     {
@@ -108,11 +108,11 @@ int FileWithAddresses::retrieveAddresseeIdFromDataSeparatedByLines(string lastAd
     return AddresseeId;
 }
 
-void FileWithAddresses::addAddresseeToFile(Addressee addressee)
+bool FileWithAddresses::addAddresseeToFile(Addressee addressee)
 {
     string lineWithAddresseeData = "";
     fstream textFile;
-    textFile.open(fileNameWithAddresses, ios::out | ios::app);
+    textFile.open(FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
 
     if (textFile.good() == true)
     {
@@ -126,13 +126,15 @@ void FileWithAddresses::addAddresseeToFile(Addressee addressee)
         {
             textFile << endl << lineWithAddresseeData ;
         }
+        lastAddresseeId++;
+        textFile.close();
+        return true;
     }
     else
     {
         cout << "Opening file failed." << endl;
     }
-    textFile.close();
-    system("pause");
+    return false;
 }
 
 string FileWithAddresses::convertAddresseeDataToProperFormatInFile(Addressee addressee)
