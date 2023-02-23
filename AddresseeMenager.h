@@ -32,6 +32,8 @@ public:
     void addAddressee();
     bool checkIfAddressesVectorEmpty();
     void showLoggedUserAddresses();
+    void searchByFirstname();
+    void searchByLastname();
 
 };
 

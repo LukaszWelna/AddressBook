@@ -44,6 +44,8 @@ public:
     void showLoggedUserAddresses();
     void getLastAddresseId();
     bool userLogged();
+    void searchByFirstname();
+    void searchByLastname();
 };
 
 #endif
