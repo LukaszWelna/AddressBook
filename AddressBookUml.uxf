@@ -25,6 +25,8 @@
 + addAddressee() : Void
 + showLoggedUserAddresses() : Void
 + userLogged() : Bool
++ searchByFirstname() : Void
++ searchByLastname() : Void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -129,7 +131,7 @@
     <panel_attributes>AddresseeMenager
 --
 - LOGGED_USER_ID : Integer
-- showAddresseeData : Void
+- addresses : vector &lt;Addressee&gt;
 - fileWithAddresses : FileWithAddresses
 --
 - enterAddresseData() : Addressee
@@ -139,7 +141,9 @@
 + ~AddresseeMenager()
 + addAddressee() : Void
 + checkIfAddressesVectorEmpty: Bool
-+ showLoggedUserAddresses() : Void</panel_attributes>
++ showLoggedUserAddresses() : Void
++ searchByFirstname : Void
++ searchByLastname : Void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

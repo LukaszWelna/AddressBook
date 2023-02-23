@@ -42,13 +42,12 @@ int main()
             case '1':
                 addressBook.addAddressee();
                 break;
-            /*case '2':
-                wyszukajAdresatowPoImieniu(adresaci);
+            case '2':
+                addressBook.searchByFirstname();
                 break;
             case '3':
-                wyszukajAdresatowPoNazwisku(adresaci);
+                addressBook.searchByLastname();
                 break;
-            */
             case '4':
                 addressBook.showLoggedUserAddresses();
                 break;

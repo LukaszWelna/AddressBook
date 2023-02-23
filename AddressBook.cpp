@@ -82,3 +82,13 @@ bool AddressBook::userLogged()
     else
         return false;
 }
+
+void AddressBook::searchByFirstname()
+{
+    addresseeMenager -> searchByFirstname();
+}
+
+void AddressBook::searchByLastname()
+{
+    addresseeMenager -> searchByLastname();
+}

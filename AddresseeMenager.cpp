@@ -99,15 +99,87 @@ void AddresseeMenager::showLoggedUserAddresses()
 
 void AddresseeMenager::showAddresseeData(Addressee addressee)
 {
-    cout << endl << "Id:                 " << addressee.getId() << endl;
-    cout << "Imie:               " << addressee.getFirstName() << endl;
-    cout << "Nazwisko:           " << addressee.getLastName() << endl;
-    cout << "Numer telefonu:     " << addressee.getPhoneNumber() << endl;
-    cout << "Email:              " << addressee.getEmail() << endl;
-    cout << "Adres:              " << addressee.getAddress() << endl;
+    cout << endl << "Id:               " << addressee.getId() << endl;
+    cout << "Firstname:        " << addressee.getFirstName() << endl;
+    cout << "Lastname:         " << addressee.getLastName() << endl;
+    cout << "Phone number:     " << addressee.getPhoneNumber() << endl;
+    cout << "Email:            " << addressee.getEmail() << endl;
+    cout << "Address:          " << addressee.getAddress() << endl;
 }
 
 int AddresseeMenager::getLastAddresseId()
 {
     return fileWithAddresses.getLastAddresseeId();
+}
+
+void AddresseeMenager::searchByFirstname()
+{
+    string addresseeFirstName = "";
+    bool addresseeDataShowed = false;
+
+    system("cls");
+    if (!addresses.empty())
+    {
+        cout << ">>> SEARCHING ADDRESSES BY FIRSTNAME <<<" << endl << endl;
+
+        cout << "Enter firstname: ";
+        addresseeFirstName = AuxiliaryMethods::readLine();
+        addresseeFirstName = AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(addresseeFirstName);
+
+        for (vector <Addressee>::iterator  it = addresses.begin(); it != addresses.end(); it++)
+        {
+            if (it -> getFirstName() == addresseeFirstName)
+            {
+                showAddresseeData(*it);
+                addresseeDataShowed = true;
+            }
+        }
+
+        if (!addresseeDataShowed)
+        {
+            cout << "No present addresses with this firstname." << endl;
+        }
+    }
+    else
+    {
+        cout << endl << "Address book is empty." << endl << endl;
+    }
+    cout << endl;
+    system("pause");
+}
+
+void AddresseeMenager::searchByLastname()
+{
+    string addresseeLastName = "";
+    bool addresseeDataShowed = false;
+
+    system("cls");
+    if (!addresses.empty())
+    {
+        cout << ">>> SEARCHING ADDRESSES BY LASTNAME <<<" << endl << endl;
+
+        cout << "Enter lastname: ";
+        addresseeLastName = AuxiliaryMethods::readLine();
+        addresseeLastName = AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(addresseeLastName);
+
+        for (vector <Addressee>::iterator  it = addresses.begin(); it != addresses.end(); it++)
+        {
+            if (it -> getLastName() == addresseeLastName)
+            {
+                showAddresseeData(*it);
+                addresseeDataShowed = true;
+            }
+        }
+
+        if (!addresseeDataShowed)
+        {
+            cout << "No present addresses with this lastname." << endl;
+        }
+    }
+    else
+    {
+        cout << endl << "Address book is empty." << endl << endl;
+    }
+    cout << endl;
+    system("pause");
 }
