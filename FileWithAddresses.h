@@ -6,13 +6,13 @@
 #include <vector>
 #include "Addressee.h"
 #include "AuxiliaryMethods.h"
+#include "TextFile.h"
 
 using namespace std;
 
-class FileWithAddresses
+class FileWithAddresses : public TextFile
 {
     // ATTRIBUTES
-    const string FILE_NAME_WITH_ADDRESSES;
     const string TEMP_FILE_NAME_WITH_ADDRESSES;
     int lastAddresseeId;
 
@@ -27,7 +27,7 @@ class FileWithAddresses
 
 public:
     //CONSTRUCTOR
-    FileWithAddresses(string fileNameWithAddresses, string tempFileNameWithAddresses) : FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses), TEMP_FILE_NAME_WITH_ADDRESSES(tempFileNameWithAddresses)
+    FileWithAddresses(string fileNameWithAddresses, string tempFileNameWithAddresses) : TextFile(fileNameWithAddresses), TEMP_FILE_NAME_WITH_ADDRESSES(tempFileNameWithAddresses)
     {
         lastAddresseeId = 0;
     }

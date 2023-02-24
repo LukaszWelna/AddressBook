@@ -20,7 +20,7 @@ User UserMenager::giveNewUserData()
         cout << "Enter login: ";
         user.setLogin(AuxiliaryMethods::readLine());
     }
-    while (checkLoginExists(user.getLogin()) == true);
+    while (checkLoginExists(user.getLogin()));
 
     cout << "Enter password: ";
     user.setPassword(AuxiliaryMethods::readLine());
@@ -30,7 +30,7 @@ User UserMenager::giveNewUserData()
 
 int UserMenager::retrieveNewUserData()
 {
-    if (users.empty() == true)
+    if (users.empty())
         return 1;
     else
         return users.back().getId() + 1;

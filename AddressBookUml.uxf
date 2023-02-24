@@ -68,7 +68,6 @@
 + convertIntToString : String
 + convertStringToInt : Integer
 + retrieveIntFromString : String
-+ checkFileEmpty : Bool
 + changeFirstLetterToUpperAndOtherToLower : String
 </panel_attributes>
     <additional_attributes/>
@@ -218,6 +217,21 @@
 --
 + chooseOptionMainMenu : char
 + chooseOptionUserMenu : char</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>440</y>
+      <w>280</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>MenuMenager
+--
+- FILE_NAME : String
+--
+- checkFileEmpty : Bool</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

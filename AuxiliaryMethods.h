@@ -20,7 +20,6 @@ public:
     static string convertIntToString(int);
     static int convertStringToInt(string);
     static string retrieveIntFromString(string, int);
-    static bool checkFileEmpty(fstream &);
     static string changeFirstLetterToUpperAndOtherToLower(string);
 };
 
