@@ -302,9 +302,59 @@ int FileWithAddresses::retrieveLastAddresseIdFromFile()
     return lastAddresseIdFile;
 }
 
-/*
-bool FileWithAddresses::addAddressesAfterEdit()
-{
 
+bool FileWithAddresses::addAddressesAfterEdit(vector <Addressee>::iterator it)
+{
+    string line = "";
+    bool firstLine = true;
+    Addressee addressee;
+    fstream textFileAddresses, textFileAddressesTemp;
+    textFileAddresses.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+    textFileAddressesTemp.open(TEMP_FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
+
+    if ((textFileAddresses.good()) && (textFileAddressesTemp.good()))
+    {
+        while(getline(textFileAddresses, line))
+        {
+            addressee = pullDataFromFileToStruct(line);
+
+            if (addressee.getId() == it -> getId())
+            {
+                addressee.setFirstName(AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(it -> getFirstName()));
+                addressee.setLastName(AuxiliaryMethods::changeFirstLetterToUpperAndOtherToLower(it -> getLastName()));
+                addressee.setPhoneNumber(it -> getPhoneNumber());
+                addressee.setEmail(it -> getEmail());
+                addressee.setAddress(it -> getAddress());
+            }
+
+            if (!firstLine)
+            {
+                textFileAddressesTemp << endl;
+            }
+            textFileAddressesTemp << addressee.getId() << "|";
+            textFileAddressesTemp << addressee.getUserId() << "|";
+            textFileAddressesTemp << addressee.getFirstName() << "|";
+            textFileAddressesTemp << addressee.getLastName() << "|";
+            textFileAddressesTemp << addressee.getPhoneNumber() << "|";
+            textFileAddressesTemp << addressee.getEmail() << "|";
+            textFileAddressesTemp << addressee.getAddress() << "|";
+
+            firstLine = false;
+        }
+    }
+    else
+    {
+        cout << "Opening file failed." << endl;
+        textFileAddressesTemp.close();
+        textFileAddresses.close();
+        return false;
+    }
+
+    textFileAddressesTemp.close();
+    textFileAddresses.close();
+    // DELETE OLD FILE AND RENAME TEMP FILE
+    renameTempFile();
+
+    return true;
 }
-*/
+

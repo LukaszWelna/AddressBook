@@ -141,7 +141,7 @@
 - enterAddresseData() : Addressee
 - showAddresseeData : Void
 - checkAddresseeRepeated() : Bool
-- searchAddresseeInDatabase() : vector &lt;Addressee&gt;::iterator
+- showEditMenu() : Void
 + AddresseeMenager()
 + ~AddresseeMenager()
 + addAddressee() : Void

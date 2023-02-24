@@ -41,7 +41,7 @@ public:
     vector <Addressee> loadAddressesLoggedUserFromFile(int);
     bool addAddresseeToFile(Addressee);
     bool addAddressesAfterDelete(int);
-    //bool addAddressesAfterEdit();
+    bool addAddressesAfterEdit(vector <Addressee>::iterator);
 
 };
 

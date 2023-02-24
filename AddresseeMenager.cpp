@@ -137,7 +137,7 @@ void AddresseeMenager::searchByFirstname()
 
         if (!addresseeDataShowed)
         {
-            cout << "No present addresses with this firstname." << endl;
+            cout << "No present addressee with this firstname." << endl;
         }
     }
     else
@@ -173,7 +173,7 @@ void AddresseeMenager::searchByLastname()
 
         if (!addresseeDataShowed)
         {
-            cout << "No present addresses with this lastname." << endl;
+            cout << "No present addressee with this lastname." << endl;
         }
     }
     else
@@ -189,7 +189,7 @@ void AddresseeMenager::deleteAddressee()
     bool addresseePresent = false;
     int addresseeId = 0;
     vector <Addressee>::iterator it;
-    cout << ">>> DELETING CHOSEN ADDRESSEE <<<" << endl << endl;
+    cout << ">>> DELETING ADDRESSEE <<<" << endl << endl;
     cout << "Enter addressee ID: ";
     cin >> addresseeId;
 
@@ -205,7 +205,7 @@ void AddresseeMenager::deleteAddressee()
 
     if (!addresseePresent)
     {
-        cout << "No present addresses with this ID." << endl;
+        cout << "No present addressee with this ID." << endl;
         system("pause");
         return;
     }
@@ -235,14 +235,14 @@ void AddresseeMenager::deleteAddressee()
     system("pause");
 }
 
-/*
+
 void AddresseeMenager::editAddressee()
 {
     string newData = "";
     bool addresseePresent = false;
     int addresseeId = 0;
     vector <Addressee>::iterator it;
-    cout << ">>> EDITING CHOSEN ADDRESSEE <<<" << endl << endl;
+    cout << ">>> EDITING ADDRESSEE <<<" << endl << endl;
     cout << "Enter addressee ID: ";
     cin >> addresseeId;
 
@@ -258,12 +258,12 @@ void AddresseeMenager::editAddressee()
 
     if (!addresseePresent)
     {
-        cout << "No present addresses with this ID." << endl;
+        cout << "No present addressee with this ID." << endl;
         system("pause");
         return;
     }
 
-    wyswietlMenuEdycji(osoby, it);
+    showEditMenu(it);
     char choice;
     // LOAD OPTION
     cout << "Your choice: ";
@@ -306,14 +306,28 @@ void AddresseeMenager::editAddressee()
 
     }
 
-    // ZAPISANIE DO NOWEGO PLIKU
-    dodajOsobyPoEdycji(it);
-
-    // USUNIECIE STAREGO PLIKU I ZMIANA NAZWY NOWEGO PLIKU
-    zamianaPlikuAdresaci();
-
-    cout << "Aktualizacja danych pomyslna" << endl;
+    // SAVE ADDRESSES TO A NEW FILE
+    if (fileWithAddresses.addAddressesAfterEdit(it))
+    {
+        cout << "Addressee data edited." << endl;
+    }
+    else
+    {
+        cout << "Editing addressee data failed." << endl;
+    }
 
     system("pause");
 }
-*/
+
+void AddresseeMenager::showEditMenu(vector <Addressee>::iterator it)
+{
+    system("cls");
+    cout << "1. Firstname:      " << it -> getFirstName() << endl;
+    cout << "2. Lastname:       " << it -> getLastName() << endl;
+    cout << "3. Phone number:   " << it -> getPhoneNumber() << endl;
+    cout << "4. Email:          " << it -> getEmail() << endl;
+    cout << "5. Address:        " << it -> getAddress() << endl;
+    cout << "6. Menu" << endl;
+}
+
+

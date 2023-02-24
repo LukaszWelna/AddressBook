@@ -49,7 +49,7 @@ public:
     void searchByFirstname();
     void searchByLastname();
     void deleteAddressee();
-    //void editAddressee();
+    void editAddressee();
 };
 
 #endif
