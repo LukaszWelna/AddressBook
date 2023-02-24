@@ -53,11 +53,10 @@ int main()
                 break;
             case '5':
                 addressBook.deleteAddressee();
-                //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
                 break;
-            //case '6':
-                //edytujAdresata(adresaci);
-                //break;
+            case '6':
+                addressBook.editAddressee();
+                break;
             case '7':
                 addressBook.changeLoggedUserPassword();
                 break;

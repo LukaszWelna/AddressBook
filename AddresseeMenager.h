@@ -20,6 +20,7 @@ class AddresseeMenager
     Addressee enterAddresseData(int);
     void showAddresseeData(Addressee);
     bool checkAddresseeRepeated(Addressee);
+    void showEditMenu(vector <Addressee>::iterator);
 
 public:
     // CONSTRUCTOR
@@ -36,7 +37,7 @@ public:
     void searchByFirstname();
     void searchByLastname();
     void deleteAddressee();
-    //void editAddressee();
+    void editAddressee();
 };
 
 #endif

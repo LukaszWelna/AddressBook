@@ -98,7 +98,7 @@ void AddressBook::deleteAddressee()
     addresseeMenager -> deleteAddressee();
 }
 
-//void AddressBook::editAddressee()
-//{
-  //  addresseeMenager -> editAddressee();
-//}
+void AddressBook::editAddressee()
+{
+    addresseeMenager -> editAddressee();
+}
