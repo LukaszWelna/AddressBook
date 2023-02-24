@@ -47,8 +47,6 @@
 - id : Integer
 - login : String
 - password : String
-+ User()
-+ ~User()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -62,8 +60,6 @@
     </coordinates>
     <panel_attributes>AuxiliaryMethods
 --
-+ AuxiliaryMethods()
-+ ~AuxiliaryMethods()
 + readLine : String
 + convertIntToString : String
 + convertStringToInt : Integer
@@ -91,7 +87,6 @@
 - checkLoginExists : Bool
 - saveAllUsersInFile() : Void
 + UserMenager()
-+ ~UserMenager()
 + userSignUp() : Void
 + userLogin() : Integer
 + changeLoggedUserPassword() : Void
@@ -111,13 +106,11 @@
     </coordinates>
     <panel_attributes>FileWithUsers
 --
-- FILE_NAME_WITH_USERS : String
 - singleUserDataSeparatedByLines : String
 --
 - convertUserDataToProperFormatInFile : String
 - getSingleUserData() : User
 + FileWithUsers()
-+ ~FileWithUsers()
 + addUserToFile : Void
 + loadUsersFromFile() : vector &lt;User&gt;
 + saveAllUsersInFile() : Void</panel_attributes>
@@ -142,7 +135,6 @@
 - checkAddresseeRepeated() : Bool
 - showEditMenu() : Void
 + AddresseeMenager()
-+ ~AddresseeMenager()
 + addAddressee() : Void
 + checkIfAddressesVectorEmpty: Bool
 + showLoggedUserAddresses() : Void
@@ -162,7 +154,6 @@
     </coordinates>
     <panel_attributes>FileWithAddresses
 --
-- FILE_NAME_WITH_ADDRESSES : String
 - TEMP_FILE_NAME_WITH_ADDRESSES : String
 - lastAddresseeId : Integer
 --
@@ -174,7 +165,6 @@
 - renameTempFile() : Void
 - retrieveLastAddresseIdFromFile() : Integer
 + FileWithAddresses()
-+ ~FileWithAddresses()
 + loadAddressesLoggedUserFromFile : Integer
 + addAddresseeToFile : Bool
 + addAddressesAfterDelete : Bool
@@ -201,7 +191,6 @@
 - address : String
 --
 + Addressee()
-+ ~Addressee()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -227,11 +216,12 @@
       <w>280</w>
       <h>390</h>
     </coordinates>
-    <panel_attributes>MenuMenager
+    <panel_attributes>TextFile
 --
 - FILE_NAME : String
 --
-- checkFileEmpty : Bool</panel_attributes>
++ TextFile()
++ checkFileEmpty : Bool</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
