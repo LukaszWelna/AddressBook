@@ -8,8 +8,6 @@ using namespace std;
 
 class MenuMenager
 {
-    // ATTRIBUTES
-
     // METHODS
 public:
     static char chooseOptionMainMenu();

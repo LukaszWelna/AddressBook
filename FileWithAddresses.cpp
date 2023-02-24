@@ -21,7 +21,7 @@ vector <Addressee> FileWithAddresses::loadAddressesLoggedUserFromFile(int logged
     string singleAddresseeDataSeparatedByLines = "";
     string lastAddresseeDataInFile = "";
     fstream textFile;
-    textFile.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+    textFile.open(getFileName(), ios::in);
 
     if (textFile.good())
     {
@@ -112,13 +112,13 @@ bool FileWithAddresses::addAddresseeToFile(Addressee addressee)
 {
     string lineWithAddresseeData = "";
     fstream textFile;
-    textFile.open(FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
+    textFile.open(getFileName(), ios::out | ios::app);
 
     if (textFile.good())
     {
         lineWithAddresseeData = convertAddresseeDataToProperFormatInFile(addressee);
 
-        if (AuxiliaryMethods::checkFileEmpty(textFile))
+        if (checkFileEmpty())
         {
             textFile << lineWithAddresseeData;
         }
@@ -158,7 +158,7 @@ bool FileWithAddresses::addAddressesAfterDelete(int addresseeId)
     bool firstLine = true;
     Addressee addressee;
     fstream textFileAddresses, textFileAddressesTemp;
-    textFileAddresses.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+    textFileAddresses.open(getFileName(), ios::in);
     textFileAddressesTemp.open(TEMP_FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
 
     if ((textFileAddresses.good()) && (textFileAddressesTemp.good()))
@@ -257,10 +257,10 @@ Addressee FileWithAddresses::pullDataFromFileToStruct(string line)
 
 void FileWithAddresses::renameTempFile()
 {
-    if (remove(FILE_NAME_WITH_ADDRESSES.c_str()) == 0)
+    if (remove(getFileName().c_str()) == 0)
     {
         // RENAME TEMPORARY FILE
-        if (rename(TEMP_FILE_NAME_WITH_ADDRESSES.c_str(), FILE_NAME_WITH_ADDRESSES.c_str()) != 0)
+        if (rename(TEMP_FILE_NAME_WITH_ADDRESSES.c_str(), getFileName().c_str()) != 0)
         {
             cout << "Rename of file name failed." << endl;
         }
@@ -278,7 +278,7 @@ int FileWithAddresses::retrieveLastAddresseIdFromFile()
     string singleAddresseeDataSeparatedByLines = "";
     string lastAddresseeData = "";
     fstream textFile;
-    textFile.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+    textFile.open(getFileName(), ios::in);
 
     if (textFile.good())
     {
@@ -309,7 +309,7 @@ bool FileWithAddresses::addAddressesAfterEdit(vector <Addressee>::iterator it)
     bool firstLine = true;
     Addressee addressee;
     fstream textFileAddresses, textFileAddressesTemp;
-    textFileAddresses.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+    textFileAddresses.open(getFileName(), ios::in);
     textFileAddressesTemp.open(TEMP_FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
 
     if ((textFileAddresses.good()) && (textFileAddressesTemp.good()))

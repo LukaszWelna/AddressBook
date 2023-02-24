@@ -4,13 +4,13 @@ void FileWithUsers::addUserToFile(User user)
 {
     fstream textFile;
     string lineWithUserData = "";
-    textFile.open(FILE_NAME_WITH_USERS, ios::out | ios::app);
+    textFile.open(getFileName(), ios::out | ios::app);
 
-    if (textFile.good() == true)
+    if (textFile.good())
     {
         lineWithUserData = convertUserDataToProperFormatInFile(user);
 
-        if (AuxiliaryMethods::checkFileEmpty(textFile) == true)
+        if (checkFileEmpty())
         {
             textFile << lineWithUserData;
         }
@@ -21,7 +21,7 @@ void FileWithUsers::addUserToFile(User user)
     }
     else
     {
-        cout << "Opening file and save data failed in file: " << FILE_NAME_WITH_USERS << endl;
+        cout << "Opening file and save data failed in file: " << getFileName() << endl;
         system("pause");
     }
     textFile.close();
@@ -43,9 +43,9 @@ vector <User> FileWithUsers::loadUsersFromFile()
     User user;
     vector <User> users;
 
-    textFile.open(FILE_NAME_WITH_USERS, ios::in);
+    textFile.open(getFileName(), ios::in);
 
-    if (textFile.good() == true)
+    if (textFile.good())
     {
         while (getline(textFile, singleUserDataSeparatedByLines))
         {
@@ -96,9 +96,9 @@ void FileWithUsers::saveAllUsersInFile(vector <User> users)
     string lineWithUserData = "";
     vector <User>::iterator itEnd = --users.end();
 
-    textFile.open(FILE_NAME_WITH_USERS, ios::out);
+    textFile.open(getFileName(), ios::out);
 
-    if (textFile.good() == true)
+    if (textFile.good())
     {
         for (vector <User>::iterator it = users.begin(); it != users.end(); it++)
         {
@@ -117,7 +117,7 @@ void FileWithUsers::saveAllUsersInFile(vector <User> users)
     }
     else
     {
-        cout << "Cannot open a file " << FILE_NAME_WITH_USERS << endl;
+        cout << "Cannot open a file " << getFileName() << endl;
     }
     textFile.close();
 }

@@ -6,13 +6,13 @@
 #include <vector>
 #include "User.h"
 #include "AuxiliaryMethods.h"
+#include "TextFile.h"
 
 using namespace std;
 
-class FileWithUsers
+class FileWithUsers : public TextFile
 {
     // ATTRIBUTES
-    const string FILE_NAME_WITH_USERS;
     string singleUserDataSeparatedByLines;
 
     // METHODS
@@ -21,7 +21,7 @@ class FileWithUsers
 
 public:
     //CONSTRUCTOR
-    FileWithUsers(string fileNameWithUsers) : FILE_NAME_WITH_USERS(fileNameWithUsers)
+    FileWithUsers(string fileNameWithUsers) : TextFile(fileNameWithUsers)
     {
 
     }
