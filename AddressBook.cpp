@@ -15,7 +15,7 @@ void AddressBook::userLogin()
     userMenager.userLogin();
     if (userLogged())
     {
-        addresseeMenager = new AddresseeMenager(FILE_NAME_WITH_ADDRESSES, userMenager.getLoggedUserId());
+        addresseeMenager = new AddresseeMenager(FILE_NAME_WITH_ADDRESSES, userMenager.getLoggedUserId(), TEMP_FILE_NAME_WITH_ADDRESSES);
     }
 }
 
@@ -92,3 +92,13 @@ void AddressBook::searchByLastname()
 {
     addresseeMenager -> searchByLastname();
 }
+
+void AddressBook::deleteAddressee()
+{
+    addresseeMenager -> deleteAddressee();
+}
+
+//void AddressBook::editAddressee()
+//{
+  //  addresseeMenager -> editAddressee();
+//}

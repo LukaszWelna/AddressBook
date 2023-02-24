@@ -23,7 +23,7 @@ vector <Addressee> FileWithAddresses::loadAddressesLoggedUserFromFile(int logged
     fstream textFile;
     textFile.open(FILE_NAME_WITH_ADDRESSES, ios::in);
 
-    if (textFile.good() == true)
+    if (textFile.good())
     {
         while (getline(textFile, singleAddresseeDataSeparatedByLines))
         {
@@ -114,11 +114,11 @@ bool FileWithAddresses::addAddresseeToFile(Addressee addressee)
     fstream textFile;
     textFile.open(FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
 
-    if (textFile.good() == true)
+    if (textFile.good())
     {
         lineWithAddresseeData = convertAddresseeDataToProperFormatInFile(addressee);
 
-        if (AuxiliaryMethods::checkFileEmpty(textFile) == true)
+        if (AuxiliaryMethods::checkFileEmpty(textFile))
         {
             textFile << lineWithAddresseeData;
         }
@@ -151,3 +151,160 @@ string FileWithAddresses::convertAddresseeDataToProperFormatInFile(Addressee add
 
     return lineWithAddresseeData;
 }
+
+bool FileWithAddresses::addAddressesAfterDelete(int addresseeId)
+{
+    string line = "";
+    bool firstLine = true;
+    Addressee addressee;
+    fstream textFileAddresses, textFileAddressesTemp;
+    textFileAddresses.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+    textFileAddressesTemp.open(TEMP_FILE_NAME_WITH_ADDRESSES, ios::out | ios::app);
+
+    if ((textFileAddresses.good()) && (textFileAddressesTemp.good()))
+    {
+        while(getline(textFileAddresses, line))
+        {
+            addressee = pullDataFromFileToStruct(line);
+            if (!(addressee.getId() == addresseeId))
+            {
+                if (!firstLine)
+                {
+                    textFileAddressesTemp << endl;
+                }
+                textFileAddressesTemp << addressee.getId() << "|";
+                textFileAddressesTemp << addressee.getUserId() << "|";
+                textFileAddressesTemp << addressee.getFirstName() << "|";
+                textFileAddressesTemp << addressee.getLastName() << "|";
+                textFileAddressesTemp << addressee.getPhoneNumber() << "|";
+                textFileAddressesTemp << addressee.getEmail() << "|";
+                textFileAddressesTemp << addressee.getAddress() << "|";
+
+                firstLine = false;
+            }
+        }
+    }
+    else
+    {
+        cout << "Opening file failed." << endl;
+        textFileAddressesTemp.close();
+        textFileAddresses.close();
+        return false;
+    }
+    textFileAddressesTemp.close();
+    textFileAddresses.close();
+
+    // DELETE OLD FILE AND RENAME TEMP FILE
+    renameTempFile();
+
+    // CHECK IF THE LAST ADDRESSEE DELETED
+    if (addresseeId == lastAddresseeId)
+    {
+        lastAddresseeId = retrieveLastAddresseIdFromFile();
+    }
+
+    return true;
+}
+
+Addressee FileWithAddresses::pullDataFromFileToStruct(string line)
+{
+    Addressee addressee;
+    int numberOfLoadedData = 0, stringLength = 0;
+
+    int i = 0;
+    while (i < (int) line.length())
+    {
+        if (line[i] == '|')
+        {
+            switch(numberOfLoadedData)
+            {
+            case 0:
+                addressee.setId(stoi(line.substr(0, stringLength)));
+                break;
+            case 1:
+                addressee.setUserId(stoi(line.substr(i - stringLength, stringLength)));
+                break;
+            case 2:
+                addressee.setFirstName(line.substr(i - stringLength, stringLength));
+                break;
+            case 3:
+                addressee.setLastName(line.substr(i - stringLength, stringLength));
+                break;
+            case 4:
+                addressee.setPhoneNumber(line.substr(i - stringLength, stringLength));
+                break;
+            case 5:
+                addressee.setEmail(line.substr(i - stringLength, stringLength));
+                break;
+            case 6:
+                addressee.setAddress(line.substr(i - stringLength, stringLength));
+                break;
+
+            }
+            numberOfLoadedData++;
+            stringLength = 0;
+        }
+        else
+        {
+            stringLength++;
+        }
+
+        i++;
+    }
+
+    return addressee;
+}
+
+void FileWithAddresses::renameTempFile()
+{
+    if (remove(FILE_NAME_WITH_ADDRESSES.c_str()) == 0)
+    {
+        // RENAME TEMPORARY FILE
+        if (rename(TEMP_FILE_NAME_WITH_ADDRESSES.c_str(), FILE_NAME_WITH_ADDRESSES.c_str()) != 0)
+        {
+            cout << "Rename of file name failed." << endl;
+        }
+
+    }
+    else
+    {
+        cout << "Deleting old file failed." << endl;
+    }
+}
+
+int FileWithAddresses::retrieveLastAddresseIdFromFile()
+{
+    int lastAddresseIdFile = 0;
+    string singleAddresseeDataSeparatedByLines = "";
+    string lastAddresseeData = "";
+    fstream textFile;
+    textFile.open(FILE_NAME_WITH_ADDRESSES, ios::in);
+
+    if (textFile.good())
+    {
+        while (getline(textFile, singleAddresseeDataSeparatedByLines))
+        {
+            lastAddresseeData = singleAddresseeDataSeparatedByLines;
+        }
+
+        if (lastAddresseeData != "")
+        {
+            lastAddresseIdFile = retrieveAddresseeIdFromDataSeparatedByLines(lastAddresseeData);
+        }
+    }
+    else
+    {
+        cout << "Opening file failed." << endl;
+        return 0;
+    }
+
+    textFile.close();
+    return lastAddresseIdFile;
+}
+
+/*
+bool FileWithAddresses::addAddressesAfterEdit()
+{
+
+}
+*/

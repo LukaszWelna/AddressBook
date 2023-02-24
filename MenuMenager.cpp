@@ -28,7 +28,7 @@ char MenuMenager::chooseOptionUserMenu()
     cout << "2. Search by firstname" << endl;
     cout << "3. Search by lastname" << endl;
     cout << "4. Show all addresses" << endl;
-    //cout << "5. Delete addressee" << endl;
+    cout << "5. Delete addressee" << endl;
     //cout << "6. Edit addressee" << endl;
     cout << "---------------------------" << endl;
     cout << "7. Change password" << endl;

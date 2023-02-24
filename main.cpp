@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    AddressBook addressBook("Users.txt", "Addresses.txt");
+    AddressBook addressBook("Users.txt", "Addresses.txt", "AddressesTemp.txt");
 
     char choice;
 
@@ -51,15 +51,13 @@ int main()
             case '4':
                 addressBook.showLoggedUserAddresses();
                 break;
-            /*
             case '5':
-                idUsunietegoAdresata = usunAdresata(adresaci);
-                idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+                addressBook.deleteAddressee();
+                //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
                 break;
-            case '6':
-                edytujAdresata(adresaci);
-                break;
-            */
+            //case '6':
+                //edytujAdresata(adresaci);
+                //break;
             case '7':
                 addressBook.changeLoggedUserPassword();
                 break;
