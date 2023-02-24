@@ -23,7 +23,8 @@ class AddresseeMenager
 
 public:
     // CONSTRUCTOR
-    AddresseeMenager(string fileNameWithAddresses, int loggedUserId) : fileWithAddresses(fileNameWithAddresses), LOGGED_USER_ID(loggedUserId)
+    AddresseeMenager(string fileNameWithAddresses, int loggedUserId, string tempFileNameWithAddresses)
+        : fileWithAddresses(fileNameWithAddresses, tempFileNameWithAddresses), LOGGED_USER_ID(loggedUserId)
     {
         addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(LOGGED_USER_ID);
     }
@@ -34,7 +35,8 @@ public:
     void showLoggedUserAddresses();
     void searchByFirstname();
     void searchByLastname();
-
+    void deleteAddressee();
+    //void editAddressee();
 };
 
 #endif

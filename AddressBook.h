@@ -18,11 +18,13 @@ class AddressBook
     UserMenager userMenager;
     AddresseeMenager *addresseeMenager;
     const string FILE_NAME_WITH_ADDRESSES;
+    const string TEMP_FILE_NAME_WITH_ADDRESSES;
 
     //METHODS
 public:
     // CONSTRUCTOR
-    AddressBook(string fileNameWithUsers, string fileNameWithAddresses) : userMenager(fileNameWithUsers), FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses)
+    AddressBook(string fileNameWithUsers, string fileNameWithAddresses, string tempFileNameWithAddresses)
+        : userMenager(fileNameWithUsers), FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses), TEMP_FILE_NAME_WITH_ADDRESSES(tempFileNameWithAddresses)
     {
         addresseeMenager = NULL;
     }
@@ -46,6 +48,8 @@ public:
     bool userLogged();
     void searchByFirstname();
     void searchByLastname();
+    void deleteAddressee();
+    //void editAddressee();
 };
 
 #endif

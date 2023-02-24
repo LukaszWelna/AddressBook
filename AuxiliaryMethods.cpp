@@ -7,6 +7,7 @@ char AuxiliaryMethods::readSign()
 
     while (true)
     {
+        cin.sync();
         getline(cin, input);
 
         if (input.length() == 1)

@@ -183,3 +183,137 @@ void AddresseeMenager::searchByLastname()
     cout << endl;
     system("pause");
 }
+
+void AddresseeMenager::deleteAddressee()
+{
+    bool addresseePresent = false;
+    int addresseeId = 0;
+    vector <Addressee>::iterator it;
+    cout << ">>> DELETING CHOSEN ADDRESSEE <<<" << endl << endl;
+    cout << "Enter addressee ID: ";
+    cin >> addresseeId;
+
+    // FIND ADDRESSEE IN VECTOR
+    for (it = addresses.begin(); it < addresses.end(); it++)
+    {
+        if (addresseeId == it -> getId())
+        {
+            addresseePresent = true;
+            break;
+        }
+    }
+
+    if (!addresseePresent)
+    {
+        cout << "No present addresses with this ID." << endl;
+        system("pause");
+        return;
+    }
+
+    // ACKNOWLEDGEMENT OF DELETING ADDRESSEE
+    cout << "Are You sure to delete this addressee? Acknowledge by entering \"y\": ";
+    char sign = AuxiliaryMethods::readSign();
+    if (sign != 'y')
+    {
+        cout << "Addressee deleting cancelled." << endl;
+        system("pause");
+        return;
+    }
+
+    addresses.erase(it);
+
+    // SAVE ADDRESSES TO A NEW FILE
+    if (fileWithAddresses.addAddressesAfterDelete(addresseeId))
+    {
+        cout << "Addressee deleted from database" << endl;
+    }
+    else
+    {
+        cout << "Deleting addressee from database failed." << endl;
+    }
+
+    system("pause");
+}
+
+/*
+void AddresseeMenager::editAddressee()
+{
+    string newData = "";
+    bool addresseePresent = false;
+    int addresseeId = 0;
+    vector <Addressee>::iterator it;
+    cout << ">>> EDITING CHOSEN ADDRESSEE <<<" << endl << endl;
+    cout << "Enter addressee ID: ";
+    cin >> addresseeId;
+
+    // FIND ADDRESSEE IN VECTOR
+    for (it = addresses.begin(); it < addresses.end(); it++)
+    {
+        if (addresseeId == it -> getId())
+        {
+            addresseePresent = true;
+            break;
+        }
+    }
+
+    if (!addresseePresent)
+    {
+        cout << "No present addresses with this ID." << endl;
+        system("pause");
+        return;
+    }
+
+    wyswietlMenuEdycji(osoby, it);
+    char choice;
+    // LOAD OPTION
+    cout << "Your choice: ";
+    choice = AuxiliaryMethods::readSign();
+
+    switch(choice)
+    {
+    case '1':
+        cout << "Enter new firstname: ";
+        newData = AuxiliaryMethods::readLine();
+        it -> setFirstName(newData);
+        break;
+
+    case '2':
+        cout << "Enter new lastname: ";
+        newData = AuxiliaryMethods::readLine();
+        it -> setLastName(newData);
+        break;
+
+    case '3':
+        cout << "Enter new phone number: ";
+        newData = AuxiliaryMethods::readLine();
+        it -> setPhoneNumber(newData);
+        break;
+
+    case '4':
+        cout << "Enter new email: ";
+        newData = AuxiliaryMethods::readLine();
+        it -> setEmail(newData);
+        break;
+
+    case '5':
+        cout << "Enter new address: ";
+        newData = AuxiliaryMethods::readLine();
+        it -> setAddress(newData);
+        break;
+
+    case '6':
+        return;
+
+    }
+
+    // ZAPISANIE DO NOWEGO PLIKU
+    dodajOsobyPoEdycji(it);
+
+    // USUNIECIE STAREGO PLIKU I ZMIANA NAZWY NOWEGO PLIKU
+    zamianaPlikuAdresaci();
+
+    cout << "Aktualizacja danych pomyslna" << endl;
+
+    system("pause");
+}
+*/
