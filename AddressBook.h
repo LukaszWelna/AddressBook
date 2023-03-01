@@ -40,11 +40,9 @@ public:
     void userLogin();
     void changeLoggedUserPassword();
     void userLogout();
-    void showAllUsers();
     int getLoggedUserId();
     void addAddressee();
     void showLoggedUserAddresses();
-    void getLastAddresseId();
     bool userLogged();
     void searchByFirstname();
     void searchByLastname();

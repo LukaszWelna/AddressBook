@@ -107,11 +107,6 @@ void AddresseeMenager::showAddresseeData(Addressee addressee)
     cout << "Address:          " << addressee.getAddress() << endl;
 }
 
-int AddresseeMenager::getLastAddresseId()
-{
-    return fileWithAddresses.getLastAddresseeId();
-}
-
 void AddresseeMenager::searchByFirstname()
 {
     string addresseeFirstName = "";

@@ -5,11 +5,6 @@ void AddressBook::userSignUp()
     userMenager.userSignUp();
 }
 
-void AddressBook::showAllUsers()
-{
-    userMenager.showAllUsers();
-}
-
 void AddressBook::userLogin()
 {
     userMenager.userLogin();
@@ -67,12 +62,6 @@ void AddressBook::showLoggedUserAddresses()
     {
         cout << "You are not logged in. Login and try again." << endl;
     }
-}
-
-void AddressBook::getLastAddresseId()
-{
-    cout << "Id ostatniego adresata: " << addresseeMenager -> getLastAddresseId() << endl;
-    system("pause");
 }
 
 bool AddressBook::userLogged()
