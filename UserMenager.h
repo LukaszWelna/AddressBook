@@ -34,7 +34,6 @@ public:
     void userLogin();
     void changeLoggedUserPassword();
     void userLogout();
-    void showAllUsers();
     int getLoggedUserId();
 };
 

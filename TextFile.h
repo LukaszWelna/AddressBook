@@ -23,7 +23,6 @@ public:
     // GETTERS
     const string getFileName();
 
-
     bool checkFileEmpty();
 };
 

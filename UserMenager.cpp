@@ -49,14 +49,6 @@ bool UserMenager::checkLoginExists(string login)
     return false;
 }
 
-void UserMenager::showAllUsers()
-{
-    for (int i = 0; i < (int) users.size(); i++)
-    {
-        cout << users[i].getId() << " " << users[i].getLogin() << " " << users[i].getPassword() << endl;
-    }
-}
-
 void UserMenager::userLogin()
 {
     User user;

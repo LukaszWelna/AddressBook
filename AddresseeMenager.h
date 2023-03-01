@@ -30,7 +30,6 @@ public:
         addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(LOGGED_USER_ID);
     }
 
-    int getLastAddresseId();
     void addAddressee();
     bool checkIfAddressesVectorEmpty();
     void showLoggedUserAddresses();
