@@ -1,6 +1,6 @@
-#include "AddresseeMenager.h"
+#include "AddresseeManager.h"
 
-void AddresseeMenager::addAddressee()
+void AddresseeManager::addAddressee()
 {
     Addressee addressee;
 
@@ -26,7 +26,7 @@ void AddresseeMenager::addAddressee()
     system("pause");
 }
 
-Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
+Addressee AddresseeManager::enterAddresseData(int loggedUserId)
 {
     Addressee addressee;
     addressee.setId(fileWithAddresses.getLastAddresseeId() + 1);
@@ -52,7 +52,7 @@ Addressee AddresseeMenager::enterAddresseData(int loggedUserId)
     return addressee;
 }
 
-bool AddresseeMenager::checkAddresseeRepeated(Addressee addressee)
+bool AddresseeManager::checkAddresseeRepeated(Addressee addressee)
 {
     int i = 0;
     while(i < (int) addresses.size())
@@ -72,12 +72,12 @@ bool AddresseeMenager::checkAddresseeRepeated(Addressee addressee)
     return false;
 }
 
-bool AddresseeMenager::checkIfAddressesVectorEmpty()
+bool AddresseeManager::checkIfAddressesVectorEmpty()
 {
     return addresses.empty();
 }
 
-void AddresseeMenager::showLoggedUserAddresses()
+void AddresseeManager::showLoggedUserAddresses()
 {
     system("cls");
     if (!addresses.empty())
@@ -97,7 +97,7 @@ void AddresseeMenager::showLoggedUserAddresses()
     system("pause");
 }
 
-void AddresseeMenager::showAddresseeData(Addressee addressee)
+void AddresseeManager::showAddresseeData(Addressee addressee)
 {
     cout << endl << "Id:               " << addressee.getId() << endl;
     cout << "Firstname:        " << addressee.getFirstName() << endl;
@@ -107,7 +107,7 @@ void AddresseeMenager::showAddresseeData(Addressee addressee)
     cout << "Address:          " << addressee.getAddress() << endl;
 }
 
-void AddresseeMenager::searchByFirstname()
+void AddresseeManager::searchByFirstname()
 {
     string addresseeFirstName = "";
     bool addresseeDataShowed = false;
@@ -143,7 +143,7 @@ void AddresseeMenager::searchByFirstname()
     system("pause");
 }
 
-void AddresseeMenager::searchByLastname()
+void AddresseeManager::searchByLastname()
 {
     string addresseeLastName = "";
     bool addresseeDataShowed = false;
@@ -179,7 +179,7 @@ void AddresseeMenager::searchByLastname()
     system("pause");
 }
 
-void AddresseeMenager::deleteAddressee()
+void AddresseeManager::deleteAddressee()
 {
     bool addresseePresent = false;
     int addresseeId = 0;
@@ -231,7 +231,7 @@ void AddresseeMenager::deleteAddressee()
 }
 
 
-void AddresseeMenager::editAddressee()
+void AddresseeManager::editAddressee()
 {
     string newData = "";
     bool addresseePresent = false;
@@ -314,7 +314,7 @@ void AddresseeMenager::editAddressee()
     system("pause");
 }
 
-void AddresseeMenager::showEditMenu(vector <Addressee>::iterator it)
+void AddresseeManager::showEditMenu(vector <Addressee>::iterator it)
 {
     system("cls");
     cout << "1. Firstname:      " << it -> getFirstName() << endl;

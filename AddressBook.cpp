@@ -2,28 +2,28 @@
 
 void AddressBook::userSignUp()
 {
-    userMenager.userSignUp();
+    userManager.userSignUp();
 }
 
 void AddressBook::userLogin()
 {
-    userMenager.userLogin();
+    userManager.userLogin();
     if (userLogged())
     {
-        addresseeMenager = new AddresseeMenager(FILE_NAME_WITH_ADDRESSES, userMenager.getLoggedUserId(), TEMP_FILE_NAME_WITH_ADDRESSES);
+        addresseeManager = new AddresseeManager(FILE_NAME_WITH_ADDRESSES, userManager.getLoggedUserId(), TEMP_FILE_NAME_WITH_ADDRESSES);
     }
 }
 
 int AddressBook::getLoggedUserId()
 {
-    return userMenager.getLoggedUserId();
+    return userManager.getLoggedUserId();
 }
 
 void AddressBook::changeLoggedUserPassword()
 {
     if (userLogged())
     {
-        userMenager.changeLoggedUserPassword();
+        userManager.changeLoggedUserPassword();
     }
     else
     {
@@ -34,16 +34,16 @@ void AddressBook::changeLoggedUserPassword()
 
 void AddressBook::userLogout()
 {
-    userMenager.userLogout();
-    delete addresseeMenager;
-    addresseeMenager = NULL;
+    userManager.userLogout();
+    delete addresseeManager;
+    addresseeManager = NULL;
 }
 
 void AddressBook::addAddressee()
 {
     if (userLogged())
     {
-        addresseeMenager -> addAddressee();
+        addresseeManager -> addAddressee();
     }
     else
     {
@@ -56,7 +56,7 @@ void AddressBook::showLoggedUserAddresses()
 {
     if (userLogged())
     {
-        addresseeMenager -> showLoggedUserAddresses();
+        addresseeManager -> showLoggedUserAddresses();
     }
     else
     {
@@ -66,7 +66,7 @@ void AddressBook::showLoggedUserAddresses()
 
 bool AddressBook::userLogged()
 {
-    if (userMenager.getLoggedUserId() > 0)
+    if (userManager.getLoggedUserId() > 0)
         return true;
     else
         return false;
@@ -74,20 +74,20 @@ bool AddressBook::userLogged()
 
 void AddressBook::searchByFirstname()
 {
-    addresseeMenager -> searchByFirstname();
+    addresseeManager -> searchByFirstname();
 }
 
 void AddressBook::searchByLastname()
 {
-    addresseeMenager -> searchByLastname();
+    addresseeManager -> searchByLastname();
 }
 
 void AddressBook::deleteAddressee()
 {
-    addresseeMenager -> deleteAddressee();
+    addresseeManager -> deleteAddressee();
 }
 
 void AddressBook::editAddressee()
 {
-    addresseeMenager -> editAddressee();
+    addresseeManager -> editAddressee();
 }

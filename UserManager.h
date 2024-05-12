@@ -1,5 +1,5 @@
-#ifndef USERMENAGER_H
-#define USERMENAGER_H
+#ifndef USERMANAGER_H
+#define USERMANAGER_H
 
 #include <iostream>
 #include <vector>
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class UserMenager
+class UserManager
 {
     // ATTRIBUTES
     int idLoggedUser;
@@ -24,7 +24,7 @@ class UserMenager
 
 public:
     // CONSTRUCTOR
-    UserMenager(string fileNameWithUsers) : fileWithUsers(fileNameWithUsers)
+    UserManager(string fileNameWithUsers) : fileWithUsers(fileNameWithUsers)
     {
         idLoggedUser = 0;
         users = fileWithUsers.loadUsersFromFile();

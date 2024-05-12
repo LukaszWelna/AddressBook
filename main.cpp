@@ -1,6 +1,6 @@
 #include <iostream>
 #include "AddressBook.h"
-#include "MenuMenager.h"
+#include "MenuManager.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main()
     {
         if (!addressBook.userLogged())
         {
-            choice = MenuMenager::chooseOptionMainMenu();
+            choice = MenuManager::chooseOptionMainMenu();
 
             switch (choice)
             {
@@ -35,7 +35,7 @@ int main()
         }
         else
         {
-            choice = MenuMenager::chooseOptionUserMenu();
+            choice = MenuManager::chooseOptionUserMenu();
 
             switch (choice)
             {

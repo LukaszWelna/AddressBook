@@ -1,6 +1,6 @@
-#include "MenuMenager.h"
+#include "MenuManager.h"
 
-char MenuMenager::chooseOptionMainMenu()
+char MenuManager::chooseOptionMainMenu()
 {
     char choice;
 
@@ -17,7 +17,7 @@ char MenuMenager::chooseOptionMainMenu()
     return choice;
 }
 
-char MenuMenager::chooseOptionUserMenu()
+char MenuManager::chooseOptionUserMenu()
 {
     char choice;
 

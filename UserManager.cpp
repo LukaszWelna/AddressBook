@@ -1,6 +1,6 @@
-#include "UserMenager.h"
+#include "UserManager.h"
 
-void UserMenager::userSignUp()
+void UserManager::userSignUp()
 {
     User user  = giveNewUserData();
     users.push_back(user);
@@ -10,7 +10,7 @@ void UserMenager::userSignUp()
     system("pause");
 }
 
-User UserMenager::giveNewUserData()
+User UserManager::giveNewUserData()
 {
     User user;
     user.setId(retrieveNewUserData());
@@ -28,7 +28,7 @@ User UserMenager::giveNewUserData()
     return user;
 }
 
-int UserMenager::retrieveNewUserData()
+int UserManager::retrieveNewUserData()
 {
     if (users.empty())
         return 1;
@@ -36,7 +36,7 @@ int UserMenager::retrieveNewUserData()
         return users.back().getId() + 1;
 }
 
-bool UserMenager::checkLoginExists(string login)
+bool UserManager::checkLoginExists(string login)
 {
     for (int i = 0; i < (int) users.size(); i++)
     {
@@ -49,7 +49,7 @@ bool UserMenager::checkLoginExists(string login)
     return false;
 }
 
-void UserMenager::userLogin()
+void UserManager::userLogin()
 {
     User user;
     string login = "", password = "";
@@ -88,12 +88,12 @@ void UserMenager::userLogin()
     return;
 }
 
-int UserMenager::getLoggedUserId()
+int UserManager::getLoggedUserId()
 {
     return idLoggedUser;
 }
 
-void UserMenager::changeLoggedUserPassword()
+void UserManager::changeLoggedUserPassword()
 {
     string newPassword = "";
     cout << "Enter new password: ";
@@ -111,12 +111,12 @@ void UserMenager::changeLoggedUserPassword()
     saveAllUsersInFile();
 }
 
-void UserMenager::saveAllUsersInFile()
+void UserManager::saveAllUsersInFile()
 {
     fileWithUsers.saveAllUsersInFile(users);
 }
 
-void UserMenager::userLogout()
+void UserManager::userLogout()
 {
     idLoggedUser = 0;
 }
