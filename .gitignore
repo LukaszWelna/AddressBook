@@ -2,6 +2,6 @@ bin/
 obj/
 plan/
 *.layout
-*.cbp
 *.depend
 *.txt
+*.cscope_file_list

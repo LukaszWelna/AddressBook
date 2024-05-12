@@ -1,5 +1,5 @@
-#ifndef ADDRESSEEMENAGER_H
-#define ADDRESSEEMENAGER_H
+#ifndef ADDRESSEEMANAGER_H
+#define ADDRESSEEMANAGER_H
 
 #include <iostream>
 #include <vector>
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class AddresseeMenager
+class AddresseeManager
 {
     // ATTRIBUTES
     FileWithAddresses fileWithAddresses;
@@ -24,7 +24,7 @@ class AddresseeMenager
 
 public:
     // CONSTRUCTOR
-    AddresseeMenager(string fileNameWithAddresses, int loggedUserId, string tempFileNameWithAddresses)
+    AddresseeManager(string fileNameWithAddresses, int loggedUserId, string tempFileNameWithAddresses)
         : fileWithAddresses(fileNameWithAddresses, tempFileNameWithAddresses), LOGGED_USER_ID(loggedUserId)
     {
         addresses = fileWithAddresses.loadAddressesLoggedUserFromFile(LOGGED_USER_ID);

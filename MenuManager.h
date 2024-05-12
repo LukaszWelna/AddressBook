@@ -1,12 +1,12 @@
-#ifndef MENUMENAGER_H
-#define MENUMENAGER_H
+#ifndef MENUMANAGER_H
+#define MENUMANAGER_H
 
 #include <iostream>
 #include "AuxiliaryMethods.h"
 
 using namespace std;
 
-class MenuMenager
+class MenuManager
 {
     // METHODS
 public:

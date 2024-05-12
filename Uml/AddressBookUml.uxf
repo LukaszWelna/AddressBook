@@ -4,15 +4,15 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>931</x>
+      <x>826</x>
       <y>112</y>
       <w>238</w>
       <h>273</h>
     </coordinates>
     <panel_attributes>AddressBook
 --
-- userMenager : UserMenager
-- addresseeMenager : AddresseeMenager
+- userManager : UserManager
+- addresseeManager : AddresseeManager
 - FILE_NAME_WITH_ADDRESSES : String
 - TEMP_FILE_NAME_WITH_ADDRESSES : String
 --
@@ -36,7 +36,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>105</x>
+      <x>0</x>
       <y>784</y>
       <w>196</w>
       <h>273</h>
@@ -52,7 +52,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>105</x>
+      <x>0</x>
       <y>392</y>
       <w>245</w>
       <h>273</h>
@@ -71,12 +71,12 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>721</x>
+      <x>616</x>
       <y>385</y>
       <w>189</w>
       <h>273</h>
     </coordinates>
-    <panel_attributes>UserMenager
+    <panel_attributes>UserManager
 --
 - idLoggedUser : Integer
 - users : vector &lt;User&gt;
@@ -86,7 +86,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
 - retrieveNewUserData : Integer
 - checkLoginExists : Bool
 - saveAllUsersInFile() : Void
-+ UserMenager()
++ UserManager()
 + userSignUp() : Void
 + userLogin() : Integer
 + changeLoggedUserPassword() : Void
@@ -98,7 +98,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>721</x>
+      <x>616</x>
       <y>1162</y>
       <w>224</w>
       <h>273</h>
@@ -118,12 +118,12 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
+      <x>1085</x>
       <y>385</y>
       <w>189</w>
       <h>273</h>
     </coordinates>
-    <panel_attributes>AddresseeMenager
+    <panel_attributes>AddresseeManager
 --
 - LOGGED_USER_ID : Integer
 - addresses : vector &lt;Addressee&gt;
@@ -133,7 +133,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
 - showAddresseeData : Void
 - checkAddresseeRepeated() : Bool
 - showEditMenu() : Void
-+ AddresseeMenager()
++ AddresseeManager()
 + addAddressee() : Void
 + checkIfAddressesVectorEmpty: Bool
 + showLoggedUserAddresses() : Void
@@ -146,7 +146,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
+      <x>1085</x>
       <y>1162</y>
       <w>273</w>
       <h>273</h>
@@ -174,7 +174,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1449</x>
+      <x>1344</x>
       <y>0</y>
       <w>196</w>
       <h>273</h>
@@ -196,12 +196,12 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>105</x>
+      <x>0</x>
       <y>0</y>
       <w>196</w>
       <h>273</h>
     </coordinates>
-    <panel_attributes>MenuMenager
+    <panel_attributes>MenuManager
 --
 + chooseOptionMainMenu : char
 + chooseOptionUserMenu : char</panel_attributes>
@@ -210,7 +210,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>105</x>
+      <x>0</x>
       <y>1162</y>
       <w>196</w>
       <h>273</h>
@@ -226,7 +226,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
+      <x>189</x>
       <y>1337</y>
       <w>441</w>
       <h>21</h>
@@ -237,7 +237,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>189</x>
+      <x>84</x>
       <y>1330</y>
       <w>1015</w>
       <h>161</h>
@@ -248,7 +248,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>812</x>
+      <x>707</x>
       <y>224</y>
       <w>133</w>
       <h>175</h>
@@ -259,7 +259,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1162</x>
+      <x>1057</x>
       <y>224</y>
       <w>140</w>
       <h>175</h>
@@ -270,7 +270,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
+      <x>189</x>
       <y>462</y>
       <w>441</w>
       <h>448</h>
@@ -281,7 +281,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>812</x>
+      <x>707</x>
       <y>651</y>
       <w>21</w>
       <h>525</h>
@@ -292,7 +292,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1372</x>
+      <x>1267</x>
       <y>266</y>
       <w>168</w>
       <h>273</h>
@@ -303,7 +303,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>196</x>
+      <x>91</x>
       <y>266</y>
       <w>21</w>
       <h>140</h>
@@ -314,7 +314,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>343</x>
+      <x>238</x>
       <y>567</y>
       <w>392</w>
       <h>21</h>
@@ -325,7 +325,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>252</x>
+      <x>147</x>
       <y>518</y>
       <w>952</w>
       <h>196</h>
@@ -336,7 +336,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>217</x>
+      <x>112</x>
       <y>658</y>
       <w>518</w>
       <h>602</h>
@@ -347,7 +347,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>182</x>
+      <x>77</x>
       <y>658</y>
       <w>1022</w>
       <h>602</h>
@@ -358,7 +358,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1281</x>
+      <x>1176</x>
       <y>651</y>
       <w>21</w>
       <h>525</h>
@@ -369,7 +369,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
+      <x>189</x>
       <y>966</y>
       <w>441</w>
       <h>343</h>
@@ -380,7 +380,7 @@ _+ changeFirstLetterToUpperAndOtherToLower : String_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1456</x>
+      <x>1351</x>
       <y>266</y>
       <w>140</w>
       <h>994</h>

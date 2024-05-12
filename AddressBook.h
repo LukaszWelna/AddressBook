@@ -7,16 +7,16 @@
 #include <fstream>
 #include <sstream>
 #include <cstdlib>
-#include "UserMenager.h"
-#include "AddresseeMenager.h"
+#include "UserManager.h"
+#include "AddresseeManager.h"
 
 using namespace std;
 
 class AddressBook
 {
     // ATTRIBUTES
-    UserMenager userMenager;
-    AddresseeMenager *addresseeMenager;
+    UserManager userManager;
+    AddresseeManager *addresseeManager;
     const string FILE_NAME_WITH_ADDRESSES;
     const string TEMP_FILE_NAME_WITH_ADDRESSES;
 
@@ -24,16 +24,16 @@ class AddressBook
 public:
     // CONSTRUCTOR
     AddressBook(string fileNameWithUsers, string fileNameWithAddresses, string tempFileNameWithAddresses)
-        : userMenager(fileNameWithUsers), FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses), TEMP_FILE_NAME_WITH_ADDRESSES(tempFileNameWithAddresses)
+        : userManager(fileNameWithUsers), FILE_NAME_WITH_ADDRESSES(fileNameWithAddresses), TEMP_FILE_NAME_WITH_ADDRESSES(tempFileNameWithAddresses)
     {
-        addresseeMenager = NULL;
+        addresseeManager = NULL;
     }
 
     // DESTRUCTOR
     ~AddressBook()
     {
-        delete addresseeMenager;
-        addresseeMenager = NULL;
+        delete addresseeManager;
+        addresseeManager = NULL;
     }
 
     void userSignUp();
